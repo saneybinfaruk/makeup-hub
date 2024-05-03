@@ -1,0 +1,59 @@
+.button {
+  background-color: #ffce53;
+  border-radius: 20px;
+  border-style: none;
+  font-weight: bold;
+  font-size: 0.694rem;
+  color: #000;
+  width: 200px;
+  height: 50px;
+  font-family: "Krona one", sans-serif;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #fbbf27;
+  transition: 0.3s;
+}
+
+/* Extra Small Devices (Phones) - Less than 576px */
+@media (max-width: 575.98px) {
+  /* Styles for extra small devices */
+  .button {
+    background-color: #ffce53;
+    font-size: 0.69rem;
+    width: 150px;
+    height: 50px;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Styles for small devices */
+  .button {
+    background-color: #ffce53;
+    font-size: 0.69rem;
+    width: 180px;
+    height: 45px;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Styles for medium devices */
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Styles for large devices */
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+  .button {
+    background-color: #ffce53;
+    font-size: 0.833rem;
+    width: 220px;
+    height: 55px;
+  }
+}

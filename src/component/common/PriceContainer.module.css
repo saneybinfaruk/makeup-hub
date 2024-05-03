@@ -1,0 +1,19 @@
+.priceContainer {
+  flex: 1;
+  position: relative; 
+}
+
+.priceText {
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  left: 12px;
+}
+
+.circle {
+  background-color: rgba(76, 76, 76, 0.1);
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  z-index: 0;
+}

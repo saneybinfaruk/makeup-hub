@@ -1,0 +1,46 @@
+.nav {
+  display: flex;
+  align-items: center;
+  color: black;
+  justify-content: space-between;
+  padding: 2rem; 
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav a {
+  color: inherit;
+  font-size: 0.694rem;
+}
+
+.nav a:hover {
+  color: #1717;
+}
+
+.brandContainer {
+  width: 20%;
+  text-align: center;
+  
+}
+
+.brandMainText {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.brandSubText {
+  font-size: 0.5em;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  margin-right: 60px;
+}

@@ -1,0 +1,110 @@
+.container {
+  padding: 20px;
+  height: auto;
+  position: relative;
+}
+
+.container:hover {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 2px #dadada;
+  transition: 0.5s;
+  transform: scale(1.03);
+}
+
+.container:hover .cart {
+  color: #fecd4e;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.favorite {
+  cursor: pointer;
+}
+
+.productImage {
+  margin: 10px auto;
+  display: block;
+  object-fit: scale-down;
+  width: 200px;
+  height: 200px;
+}
+
+.productCategorie {
+  color: #fecd4e;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.productName {
+  padding: 5px 0 18px 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: "poppins";
+  display: block;
+  color: rgb(37, 37, 37);
+}
+
+.productName:hover {
+  color: rgb(0, 0, 0);
+}
+
+
+.cartContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  align-content: center;
+}
+
+.priceContainer {
+  flex: 1;
+  position: relative;
+}
+
+.priceText {
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  left: 12px;
+}
+
+.circle {
+  background-color: rgba(76, 76, 76, 0.1);
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  z-index: 0;
+}
+
+.cart {
+  color: transparent;
+  transition: 0.5s;
+}
+
+.favoriteContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.discountContainer {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+.discountText {
+  z-index: 2;
+  position: relative;
+  font-size: 0.833rem;
+}
+.dots {
+  background-color: #fecd4e;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 100%;
+  z-index: 1;
+  left: -5px;
+}

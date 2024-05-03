@@ -1,0 +1,68 @@
+/* Extra Small Devices (Phones) - Less than 576px */
+
+.container h1 {
+  color: #e7e7e7;
+}
+
+.container p {
+  color: #e3e3e3;
+}
+
+@media (max-width: 575.98px) {
+  .container h1 {
+    font-size: 0.8rem;
+  }
+  .container p {
+    font-family: "poppins", sans-serif;
+    margin: 0.5rem 0;
+    font-size: 0.694rem;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container h1 {
+    font-size: 0.696rem;
+  }
+  .container p {
+    font-family: "poppins", sans-serif;
+    margin: 0.5rem 0;
+    font-size: 0.694rem;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container h1 {
+    font-size: 0.71rem;
+  }
+  .container p {
+    font-family: "poppins", sans-serif;
+    margin: 0.5rem 0;
+    font-size: 0.695rem;
+  }
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container h1 {
+    font-size: 0.80rem;
+  }
+  .container p {
+    font-family: "poppins", sans-serif;
+    margin: 0.5rem 0;
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+  .container h1 {
+    font-size: 0.833rem;
+  }
+  .container p {
+    font-family: "poppins", sans-serif;
+    margin: 0.5rem 0;
+    font-size: 0.833rem;
+  }
+}

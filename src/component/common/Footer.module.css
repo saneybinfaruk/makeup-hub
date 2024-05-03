@@ -1,0 +1,383 @@
+/* .container {
+  background-color: #1d1d1b;
+  position: relative; 
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: space-between;
+  
+  margin-inline: auto;
+  flex: 1;
+  gap: 5rem;  
+
+}
+
+.brandContainer {
+  width: 20%;
+  text-align: center;
+  color: #fcd251;
+}
+
+.brandMainText {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.brandSubText {
+  font-size: 0.5em;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.socialContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.combo1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.copyrightText {
+  font-size: 0.733rem;
+  font-family: "poppins", sans-serif;
+  font-weight: 500;
+  color: #3b3a3a;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+.container {
+  background-color: #1d1d1b;
+}
+
+.brandContainer {
+  text-align: center;
+  color: #fcd251;
+}
+
+.brandMainText {
+  font-weight: bold;
+}
+
+.brandSubText {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.socialContainer {
+  margin-top: 0.5rem;
+}
+
+/* Extra Small Devices (Phones) - Less than 576px */
+@media (max-width: 575.98px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    padding: 2.5rem 0 0 0;
+  }
+
+  .brandContainer {
+    grid-area: 1/1/1/13;
+  }
+
+  .brandMainText {
+    font-weight: bold;
+    font-size: 1.44rem;
+  }
+
+  .brandSubText {
+    font-size: 0.35rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    display: grid;
+    grid-area: 2/2/3/12;
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    justify-content: space-between;
+    font-size: 0.694rem;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .combo1 {
+    display: flex;
+    flex: 1;
+    gap: 1.2rem;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  .socialContainer {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: center;
+    grid-area: 3/1/4/13;
+    padding: 1rem;
+  }
+
+  .copyrightText {
+    font-size: 0.57rem;
+    color: #686868;
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    padding: 1rem;
+    grid-area: 4/1/5/13;
+    margin-top: 1rem;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto auto;
+    padding: 2.5rem 1rem 0 0;
+  }
+
+  .brandContainer {
+    grid-area: 1/1/2/13;
+  }
+
+  .brandMainText {
+    font-weight: bold;
+    font-size: 1.44rem;
+  }
+
+  .brandSubText {
+    font-size: 0.35rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    display: grid;
+    grid-area: 2/2/3/12;
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+    justify-content: space-between;
+    font-size: 0.694rem;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .combo1 {
+    display: flex;
+    flex: 1;
+    gap: 1.2rem;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  .socialContainer {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: center;
+    grid-area: 3/1/4/13;
+    padding: 1rem;
+  }
+
+  .copyrightText {
+    font-size: 0.57rem;
+    color: #686868;
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    padding: 1.5rem;
+    grid-area: 4/1/5/13;
+    margin-top: 1rem;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto auto;
+    padding: 2.5rem 1rem 0 0;
+  }
+
+  .brandContainer {
+    grid-area: 1/1/1/4;
+  }
+
+  .brandMainText {
+    font-weight: bold;
+    font-size: 1.44rem;
+  }
+
+  .brandSubText {
+    font-size: 0.35rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    display: grid;
+    grid-area: 1/4/1/11;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    gap: 1rem;
+  }
+
+  .combo1 {
+    display: flex;
+    flex: 1;
+    gap: 1.2rem;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  .socialContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    grid-area: 1/11/1/13;
+    align-items: center;
+  }
+
+  .copyrightText {
+    font-size: 0.694rem;
+    color: #686868;
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    padding: 1.5rem;
+    grid-area: 3/1/4/13;
+    margin-top: 1rem;
+  }
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    padding: 2.5rem 1rem 0 0;
+  }
+
+  .brandContainer {
+    grid-area: 1/1/1/4;
+  }
+
+  .brandMainText {
+    font-weight: bold;
+    font-size: 1.44rem;
+  }
+
+  .brandSubText {
+    font-size: 0.35rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    display: grid;
+    grid-area: 1/4/1/11;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    column-gap: 1.5rem;
+  }
+
+  .combo1 {
+    display: flex;
+    flex: 1;
+    gap: 1.2rem;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .socialContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    grid-area: 1/11/1/12;
+    align-items: center;
+  }
+
+  .copyrightText {
+    font-size: 0.694rem;
+    color: #686868;
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    padding: 1.5rem;
+    grid-area: 3/1/4/13;
+    margin-top: 1rem;
+  }
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    padding: 2.5rem 1rem 0 0;
+  }
+
+  .brandContainer {
+    grid-area: 1/1/1/4;
+  }
+
+  .brandMainText {
+    font-weight: bold;
+    font-size: 1.728rem;
+  }
+
+  .brandSubText {
+    font-size: 0.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    display: grid;
+    grid-area: 1/4/1/11;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    column-gap: 1.5rem;
+  }
+
+  .combo1 {
+    display: flex;
+    flex: 1;
+    gap: 1.2rem;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .socialContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    grid-area: 1/11/1/12;
+    align-items: center;
+  }
+
+  .copyrightText {
+    font-size: 0.833rem;
+    color: #686868;
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    padding: 1.5rem;
+    grid-area: 3/1/4/13;
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,123 @@
+.container {
+  margin-top: 4rem;
+}
+
+.heading {
+  padding: 0 5.5rem;
+}
+
+.heading h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.heading p {
+  font-size: 0.833rem;
+  font-family: "Poppins", sans-serif;
+  color: #7d7d7d;
+}
+
+.productSection {
+  display: flex;
+  gap: 2rem;
+  padding: 0 4.5rem 0 5.5rem;
+  margin: 4rem 0rem;
+  /* background-color: #08cfbe4f; */
+}
+
+.imageSection {
+  flex: 0.8;
+  display: flex; /* Add display:flex */
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.productDetails {
+  flex: 1.2;
+  padding: 1rem 0 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 0.5rem;
+}
+
+.productDetails > h6 {
+  color: #ffce53;
+}
+.favoriteBtnContainer {
+  margin-bottom: 1rem;
+}
+.favoriteBtn {
+  outline: none;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: #9b9b9b;
+  font-weight: bold;
+  font-size: 0.694rem;
+  cursor: pointer;
+}
+
+.favoriteBtn:hover {
+  color: #ffce53;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  background-color: #fff;
+  box-shadow: 0px 0px 200px #0000003f;
+  padding: 0.8rem 1rem;
+  width: 20%;
+  justify-content: center;
+  border-radius: 20px;
+  margin-right: 2rem;
+  align-items: center;
+}
+
+.btnContainer p {
+  font-size: 0.833rem;
+}
+
+.btnContainer button {
+  outline: 0;
+  border: 0;
+  background-color: #ffffff;
+  padding: 0rem 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.detailsSection {
+  margin-bottom: 1rem;
+}
+.detailsSection h6 {
+  font-size: 0.833rem;
+  margin-bottom: 1rem;
+}
+
+.detailsSection p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.833rem;
+}
+
+.mainImage {
+  width: 100%;
+  margin-inline: auto;
+  height: 500px;
+  object-fit: scale-down;
+}

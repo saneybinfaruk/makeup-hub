@@ -1,0 +1,17 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  color: #fbbf27;
+  font-size: 1.2rem;
+}
+
+.notSelected {
+  color: black;
+  font-size: 0.833rem;
+}

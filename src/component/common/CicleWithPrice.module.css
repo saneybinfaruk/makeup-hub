@@ -1,0 +1,23 @@
+.circle {
+  width: 15rem;
+  height: 15rem;
+  background-color: #ffce53;
+  border-radius: 100%; 
+}
+
+.priceContainer {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.priceTitle {
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.pricePerItem {
+  font-family: "poppins", sans-serif;
+  font-size: 0.833rem;
+}

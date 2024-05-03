@@ -1,0 +1,17 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 50px;
+  height: inherit;
+  margin-bottom: 20px;
+  position: relative; 
+}
+
+.loading {
+  position: absolute;
+  top: 60px;
+  text-align: center;
+  left: 50%;
+  translate: -50%;
+}
+
