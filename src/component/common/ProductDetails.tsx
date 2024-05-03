@@ -4,14 +4,18 @@ import PriceContainer from "./PriceContainer";
 import CustomButton from "./CustomButton";
 import { Product } from "../../pages/HomePage";
 import Spinner from "./Spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../state/store";
+import { decreament, increament } from "../state/counterSlice";
 
-const ProductDetails = ({
-  product,
-  isLoading,
-}: {
+interface Props {
   product: Product;
   isLoading: boolean;
-}) => {
+}
+const ProductDetails = ({ product, isLoading }: Props) => {
+  const count = useSelector((state: RootState) => state.count);
+  const dispatch = useDispatch();
+
   return isLoading ? (
     <Spinner />
   ) : (
@@ -43,9 +47,9 @@ const ProductDetails = ({
               priceSign={product?.price_sign}
             />
             <div className={styles.btnContainer}>
-              <button>-</button>
-              <p>2</p>
-              <button>+</button>
+              <button onClick={() => dispatch(decreament())}>-</button>
+              <p>{count.value}</p>
+              <button onClick={() => dispatch(increament())}>+</button>
             </div>
             <CustomButton
               title="add to basket"
