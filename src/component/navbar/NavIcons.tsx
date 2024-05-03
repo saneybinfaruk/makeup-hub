@@ -8,8 +8,7 @@ interface Props {
   iconStyle?: string;
   children: ReactNode;
 }
-const NavIcons = ({
-  countTextVisibility = true,
+const NavIcons = ({ 
   children,
   iconBackgroundStyle,
   iconStyle,
@@ -18,8 +17,7 @@ const NavIcons = ({
     <div className={styles.container}>
       <div className={styles.iconContainer}>
         <div className={`${iconBackgroundStyle} ${styles.iconBackground}`} />
-        <div className={`${styles.iconStyle}  ${iconStyle}`}>{children}</div>
-        {countTextVisibility && <p className={styles.countText}>4</p>}
+        <div className={`${styles.iconStyle}  ${iconStyle}`}>{children}</div> 
       </div>
     </div>
   );

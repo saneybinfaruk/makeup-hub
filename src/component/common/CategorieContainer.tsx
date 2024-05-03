@@ -7,27 +7,27 @@ import SelectOption from "./SelectOption";
 import { useState } from "react";
 import { BRANDS } from "../../constant/brand";
 import SelectOptionNum from "./SelectOptionNum";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../state/store";
+import {
+  setProductBrand,
+  setProductMaxPrice,
+  setProductMinPrice,
+  setProductType,
+} from "../state/querySlice";
 interface Props {
   isLoading: boolean;
   products: Product[];
 
-  selectedTypes: (types: string) => void;
-  selectedBrand: (brand: string) => void;
   selectSort: (sort: string) => void;
   selectItemPerPage: (itemPerPage: number) => void;
-  minChange: (value: number) => void;
-  maxChange: (value: number) => void;
 }
 
 const CategorieContainer = ({
   products,
   isLoading,
-  selectedTypes,
-  selectedBrand,
   selectSort,
   selectItemPerPage,
-  minChange,
-  maxChange,
 }: Props) => {
   const [type, setType] = useState("");
   const allBrands = ["all", ...BRANDS];
@@ -43,9 +43,10 @@ const CategorieContainer = ({
 
   const showNum = [30, 50, 80, 100];
 
+  const dispatch = useDispatch();
+
   return (
     <section className={styles.container}>
-      
       <aside className={styles.asideContainer}>
         <div className={styles.priceRangeContainer}>
           <h5>select price</h5>
@@ -54,7 +55,7 @@ const CategorieContainer = ({
             <div className={styles.inputContainer1}>
               <input
                 type="text"
-                onChange={(e) => minChange(parseInt(e.target.value))}
+                onChange={(e) => dispatch(setProductMinPrice(e.target.value))}
               />
               <p>min.</p>
             </div>
@@ -64,7 +65,7 @@ const CategorieContainer = ({
             <div className={styles.inputContainer2}>
               <input
                 type="text"
-                onChange={(e) => maxChange(parseInt(e.target.value))}
+                onChange={(e) => dispatch(setProductMaxPrice(e.target.value))}
               />
               <p>max</p>
             </div>
@@ -80,7 +81,7 @@ const CategorieContainer = ({
                   <li
                     key={subCategorie}
                     onClick={() => {
-                      selectedTypes(subCategorie);
+                      dispatch(setProductType(subCategorie));
                       setType(subCategorie);
                     }}
                     style={{ cursor: "pointer" }}
@@ -105,7 +106,9 @@ const CategorieContainer = ({
             label="brands"
             brands={allBrands}
             id="brands"
-            onChange={(value) => selectedBrand(value === "all" ? "" : value)}
+            onChange={(value) =>
+              dispatch(setProductBrand(value === "all" ? "" : value))
+            }
           />
           <SelectOption
             label="sort by"

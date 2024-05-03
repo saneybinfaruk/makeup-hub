@@ -20,6 +20,7 @@ export type Product = {
   api_featured_image: string;
   description: string;
   created_at: string;
+  favorite: number;
 };
 const HomePage = () => {
   const navigate = useNavigate();

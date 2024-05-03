@@ -39,7 +39,7 @@ const useProductSort = (products: Product[]) => {
     });
   }
 
-  return { sortedProducts, setSort , sort};
+  return { sortedProducts, setSort, sort };
 };
 
 export default useProductSort;

@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+.container img {
+  width: 200px;
+  height: 200px;
+  object-fit: scale-down;
+}
+
+.detailsContainer {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+  margin-top: 2px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.brandContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.priceContainer {
+  width: 100%;
+}
+.priceContainer .btnContainer {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.removeBtn {
+  all: unset;
+  color: var(--primaryColour);
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.removeBtn:hover {
+  color: var(--primaryColourDark);
+}

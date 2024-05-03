@@ -7,19 +7,11 @@ import useProductPagination from "../hooks/useProductPagination";
 import Pagination from "../component/common/Pagination";
 import { Product } from "./HomePage";
 
-export type ProductQuery = {
-  product_type: string;
-  brand: string;
-  minPrice: number;
-  maxPrice: number;
-};
 const ProductsPage = () => {
-  const [productQuery, setProductQuery] = useState<ProductQuery>(
-    {} as ProductQuery
-  );
-  const { data, isLoading } = useProductTypes(productQuery);
+  const { data, isLoading } = useProductTypes();
 
   const [products, setProducts] = useState<Product[]>([]);
+  
   const { setSort, sort, sortedProducts } = useProductSort(
     products as Product[]
   );
@@ -30,22 +22,6 @@ const ProductsPage = () => {
     setItemsPerPage,
     slicedProducts,
   } = useProductPagination(sortedProducts);
-
-  const handleMinPrice = (value: number) => {
-    setProductQuery({ ...productQuery, minPrice: value });
-  };
-
-  const handleMaxPrice = (value: number) => {
-    setProductQuery({ ...productQuery, maxPrice: value });
-  };
-
-  const handleSelectedTypes = (value: string) => {
-    setProductQuery({ ...productQuery, product_type: value, brand: "" });
-  };
-
-  const handleSelectedBrand = (value: string) => {
-    setProductQuery({ ...productQuery, brand: value });
-  };
 
   const handleSelectItemsPerPage = (value: number) => {
     setItemsPerPage(value);
@@ -71,11 +47,7 @@ const ProductsPage = () => {
       <ProductBanner />
       <CategorieContainer
         products={slicedProducts}
-        minChange={handleMinPrice}
-        maxChange={handleMaxPrice}
-        selectedTypes={handleSelectedTypes}
         selectItemPerPage={handleSelectItemsPerPage}
-        selectedBrand={handleSelectedBrand}
         selectSort={handleSetSort}
         isLoading={isLoading}
       />

@@ -48,3 +48,12 @@
   gap: 1.5rem;
   margin-right: 60px;
 }
+
+.favoriteContainer, .cartContainer {
+  position: relative;
+}
+.favoriteContainer p, .cartContainer p {
+  position: absolute;
+  top: -80%;
+  left: 1rem;
+}

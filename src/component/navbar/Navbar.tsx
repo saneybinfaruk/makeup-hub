@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
-import IconBg from "./NavIcons";
+import { Link, useNavigate } from "react-router-dom";
+import NavIcon from "./NavIcons";
 import styles from "./Navbar.module.css";
 import { IoBasket, IoHeart, IoSearch } from "react-icons/io5";
+import { useSelector } from "react-redux";
+import { RootState } from "../state/store";
 
 const Navbar = () => {
+  const { count } = useSelector((state: RootState) => state.favorite);
+  const { cartItems } = useSelector((state: RootState) => state.cartList);
+  const navigate = useNavigate();
+
   return (
     <nav className={styles.nav}>
       <div className={styles.brandContainer}>
@@ -29,13 +35,22 @@ const Navbar = () => {
       </ul>
 
       <div className={styles.iconContainer}>
-        <IconBg
+        <NavIcon
           children={<IoSearch size={25} />}
           iconName="search"
           countTextVisibility={false}
         />
-        <IconBg children={<IoHeart size={25} />} iconName="favorite" />
-        <IconBg children={<IoBasket size={25} />} iconName="shopping_basket" />
+        <div className={styles.favoriteContainer}>
+          <NavIcon children={<IoHeart size={25} />} iconName="favorite" />
+          <p className={styles.counterText}>{count}</p>
+        </div>
+        <div className={styles.cartContainer} onClick={()=>{navigate('/productsCart')}}>
+          <NavIcon
+            children={<IoBasket size={25} />}
+            iconName="shopping_basket"
+          />
+          <p className={styles.counterText}>{cartItems.length}</p>
+        </div>
       </div>
     </nav>
   );

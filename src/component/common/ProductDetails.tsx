@@ -7,6 +7,7 @@ import Spinner from "./Spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../state/store";
 import { decreament, increament } from "../state/counterSlice";
+import { addToList } from "../state/cartSlice";
 
 interface Props {
   product: Product;
@@ -46,16 +47,16 @@ const ProductDetails = ({ product, isLoading }: Props) => {
               price={product?.price}
               priceSign={product?.price_sign}
             />
-            <div className={styles.btnContainer}>
-              <button onClick={() => dispatch(decreament())}>-</button>
-              <p>{count.value}</p>
-              <button onClick={() => dispatch(increament())}>+</button>
-            </div>
+
+            {/* cart Button */}
+            
             <CustomButton
               title="add to basket"
               width="200px"
               height="52px"
-              onSelect={() => {}}
+              onSelect={() => {
+                dispatch(addToList(product));
+              }}
             />
           </section>
 

@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  padding: 1rem 4.5rem;
+}
+
+.cartsProduct {
+  grid-area: 1/1/1/5;
+  box-shadow: 0px 0px 200px #b1b1b13f;
+}
+
+.headerContainer h3,
+.productsPaymentContainer h3 {
+  padding: 2rem;
+}
+
+.line {
+  background-color: #e7e7e7;
+  height: 1.5px;
+  width: 100%;
+  display: block;
+}
+
+.productsPaymentContainer {
+  grid-area: 1/5/1/7;
+  box-shadow: 0px 0px 200px #b1b1b13f;
+}
+
+.paymentSum {
+  padding: 1rem;
+}
+.subContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
