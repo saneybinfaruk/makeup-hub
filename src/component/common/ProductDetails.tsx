@@ -7,15 +7,48 @@ import Spinner from "./Spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../state/store";
 import { decreament, increament } from "../state/counterSlice";
-import { addToList } from "../state/cartSlice";
+import { addToList, updateQuantity } from "../state/cartSlice";
+import CartButton from "./CartButton";
+import { useEffect, useState } from "react";
+import useCartItems from "../../hooks/useCartItems";
 
 interface Props {
   product: Product;
   isLoading: boolean;
 }
 const ProductDetails = ({ product, isLoading }: Props) => {
-  const count = useSelector((state: RootState) => state.count);
+  let { quantity, setQuantity, cartItem } = useCartItems(product);
+
   const dispatch = useDispatch();
+
+  const cartUpdate = () => {
+    if (cartItem) {
+      dispatch(
+        updateQuantity({
+          id: product.id,
+          quantity,
+        })
+      );
+    } else {
+      dispatch(addToList({ product, quantity }));
+    }
+  };
+  const handleIncreamentQuantity = () => {
+    setQuantity((quantity += 1));
+    cartUpdate();
+  };
+  const handleDecreamentQuantity = () => {
+    setQuantity((quantity -= 1));
+    cartUpdate();
+  };
+
+  useEffect(() => {
+    if (cartItem) {
+      setQuantity(cartItem ? cartItem.quantity : 0);
+    } else {
+      setQuantity(0);
+    }
+  }, [cartItem]);
 
   return isLoading ? (
     <Spinner />
@@ -48,15 +81,17 @@ const ProductDetails = ({ product, isLoading }: Props) => {
               priceSign={product?.price_sign}
             />
 
-            {/* cart Button */}
-            
+            <CartButton
+              quantity={quantity}
+              increamentQuantity={handleIncreamentQuantity}
+              decreamentQuantity={handleDecreamentQuantity}
+            />
+
             <CustomButton
               title="add to basket"
               width="200px"
               height="52px"
-              onSelect={() => {
-                dispatch(addToList(product));
-              }}
+              onSelect={handleIncreamentQuantity}
             />
           </section>
 

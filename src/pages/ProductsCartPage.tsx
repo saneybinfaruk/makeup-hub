@@ -1,7 +1,14 @@
 import styles from "./ProductsCartPage.module.css";
 import ProductCartLayout from "../component/common/ProductCartLayout";
+import { useSelector } from "react-redux";
+import { RootState } from "../component/state/store";
+import useCartItems from "../hooks/useCartItems";
 
 const ProductsCartPage = () => {
+  const { cartItems } = useSelector((state: RootState) => state.cartList);
+
+  
+
   return (
     <section className={styles.container}>
       <section className={styles.cartsProduct}>
@@ -11,10 +18,12 @@ const ProductsCartPage = () => {
         </div>
 
         <div>
-          <ProductCartLayout />
-          <span className={styles.line} />
-
-          <ProductCartLayout />
+          {cartItems.map((item, index) => (
+            <section key={index}>
+              {index > 0 && <span className={styles.line} />}
+              <ProductCartLayout cartItem={item} />
+            </section>
+          ))}
         </div>
       </section>
       <section className={styles.productsPaymentContainer}>

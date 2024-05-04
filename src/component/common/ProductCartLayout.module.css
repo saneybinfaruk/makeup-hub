@@ -1,5 +1,6 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 2rem;
@@ -9,6 +10,7 @@
   width: 200px;
   height: 200px;
   object-fit: scale-down;
+  grid-area: 1/1/1/2;
 }
 
 .detailsContainer {
@@ -16,8 +18,11 @@
   gap: 1.2rem;
   flex-direction: column;
   margin-top: 2px;
-  flex-shrink: 0;
-  flex-grow: 0;
+  grid-area: 1/2/1/4;
+}
+
+.detailsContainer h4 {
+  font-size: 1rem;
 }
 
 .brandContainer {
@@ -27,6 +32,7 @@
 }
 .priceContainer {
   width: 100%;
+  grid-area: 1/4/1/5;
 }
 .priceContainer .btnContainer {
   flex-shrink: 0;
@@ -38,6 +44,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  grid-area: 1/5/1/6;
 }
 .removeBtn {
   all: unset;

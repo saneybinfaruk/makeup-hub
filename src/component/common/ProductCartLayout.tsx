@@ -1,27 +1,66 @@
-import image from "../../assets/carouselImage1.png";
 import styles from "./ProductCartLayout.module.css";
 import PriceContainer from "./PriceContainer";
 import CartButton from "./CartButton";
+import { CartItem, updateQuantity } from "../state/cartSlice";
+import useCartItems from "../../hooks/useCartItems";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const ProductCartLayout = () => {
+interface Props {
+  cartItem: CartItem;
+}
+
+const ProductCartLayout = ({ cartItem: { product, quantity } }: Props) => {
+  const { setQuantity: storeQuantity, cartItem } = useCartItems(product);
+  let [currentQuantity, setQuantity] = useState(quantity);
+
+  const handleIncreamentQuantity = () => {
+    setQuantity((currentQuantity += 1));
+    storeQuantity(currentQuantity);
+    cartUpdate();
+  };
+
+  const handleDecreamentQuantity = () => {
+    setQuantity((currentQuantity -= 1));
+    storeQuantity(currentQuantity);
+    cartUpdate();
+  };
+  const dispatch = useDispatch();
+
+  const cartUpdate = () => {
+    dispatch(
+      updateQuantity({
+        id: product.id,
+        quantity: currentQuantity,
+      })
+    );
+  };
+
   return (
     <section className={styles.container}>
-      <img src={image} />
+      <img src={product?.api_featured_image} />
 
       <div className={styles.detailsContainer}>
-        <h4>name</h4>
+        <h4>{product?.name}</h4>
         <div className={styles.brandContainer}>
           <h6>Sold by: </h6>
-          <h5>dddddd</h5>
+          <h5>{product?.brand}</h5>
         </div>
       </div>
 
       <section className={styles.priceContainer}>
-        <PriceContainer price="56000" priceSign="$" />
+        <PriceContainer
+          price={product?.price}
+          priceSign={product?.price_sign}
+        />
       </section>
 
       <section className={styles.btnContainer}>
-        <CartButton count="12" />
+        <CartButton
+          quantity={currentQuantity}
+          increamentQuantity={handleIncreamentQuantity}
+          decreamentQuantity={handleDecreamentQuantity}
+        />
         <button className={styles.removeBtn}>Remove</button>
       </section>
     </section>

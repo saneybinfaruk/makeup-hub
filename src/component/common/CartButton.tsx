@@ -1,14 +1,22 @@
 import styles from "./CartButton.module.css";
 
 type Props = {
-  count: string;
+  quantity: number;
+  increamentQuantity: () => void;
+  decreamentQuantity: () => void;
 };
-const CartButton = ({ count }: Props) => {
+const CartButton = ({
+  quantity,
+  increamentQuantity,
+  decreamentQuantity,
+}: Props) => {
   return (
     <div className={styles.btnContainer}>
-      <button onClick={() => {}}>-</button>
-      <p>{count}</p>
-      <button onClick={() => {}}>+</button>
+      <button onClick={decreamentQuantity} disabled={quantity <= 0}>
+        -
+      </button>
+      <p>{quantity}</p>
+      <button onClick={increamentQuantity}>+</button>
     </div>
   );
 };

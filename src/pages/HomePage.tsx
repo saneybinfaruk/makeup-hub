@@ -21,6 +21,7 @@ export type Product = {
   description: string;
   created_at: string;
   favorite: number;
+  
 };
 const HomePage = () => {
   const navigate = useNavigate();
