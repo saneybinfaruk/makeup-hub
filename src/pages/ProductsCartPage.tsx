@@ -2,7 +2,7 @@ import styles from "./ProductsCartPage.module.css";
 import ProductCartLayout from "../component/common/ProductCartLayout";
 import { useSelector } from "react-redux";
 import { RootState } from "../component/state/store";
-import useCartItems from "../hooks/useCartItems";
+
 
 const ProductsCartPage = () => {
   const { cartItems } = useSelector((state: RootState) => state.cartList);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { RootState } from "../component/state/store";
 import { useSelector } from "react-redux";
 import { Product } from "../pages/HomePage";

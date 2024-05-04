@@ -3,35 +3,32 @@ import PriceContainer from "./PriceContainer";
 import CartButton from "./CartButton";
 import { CartItem, updateQuantity } from "../state/cartSlice";
 import useCartItems from "../../hooks/useCartItems";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 interface Props {
   cartItem: CartItem;
 }
 
-const ProductCartLayout = ({ cartItem: { product, quantity } }: Props) => {
-  const { setQuantity: storeQuantity, cartItem } = useCartItems(product);
-  let [currentQuantity, setQuantity] = useState(quantity);
+const ProductCartLayout = ({ cartItem: { product } }: Props) => {
+  const dispatch = useDispatch();
+  let { setQuantity, quantity } = useCartItems(product);
 
   const handleIncreamentQuantity = () => {
-    setQuantity((currentQuantity += 1));
-    storeQuantity(currentQuantity);
-    cartUpdate();
-  };
-
-  const handleDecreamentQuantity = () => {
-    setQuantity((currentQuantity -= 1));
-    storeQuantity(currentQuantity);
-    cartUpdate();
-  };
-  const dispatch = useDispatch();
-
-  const cartUpdate = () => {
+    setQuantity((prevValue) => prevValue + 1);
     dispatch(
       updateQuantity({
         id: product.id,
-        quantity: currentQuantity,
+        quantity: quantity,
+      })
+    );
+  };
+
+  const handleDecrementQuantity = () => {
+    setQuantity((prevValue) => prevValue - 1);
+    dispatch(
+      updateQuantity({
+        id: product.id,
+        quantity: quantity,
       })
     );
   };
@@ -57,9 +54,9 @@ const ProductCartLayout = ({ cartItem: { product, quantity } }: Props) => {
 
       <section className={styles.btnContainer}>
         <CartButton
-          quantity={currentQuantity}
+          quantity={quantity}
           increamentQuantity={handleIncreamentQuantity}
-          decreamentQuantity={handleDecreamentQuantity}
+          decreamentQuantity={handleDecrementQuantity}
         />
         <button className={styles.removeBtn}>Remove</button>
       </section>
