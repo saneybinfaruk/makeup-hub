@@ -4,12 +4,10 @@ import PriceContainer from "./PriceContainer";
 import CustomButton from "./CustomButton";
 import { Product } from "../../pages/HomePage";
 import Spinner from "./Spinner";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../state/store";
-import { decreament, increament } from "../state/counterSlice";
+import { useDispatch } from "react-redux";
 import { addToList, updateQuantity } from "../state/cartSlice";
 import CartButton from "./CartButton";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useCartItems from "../../hooks/useCartItems";
 
 interface Props {

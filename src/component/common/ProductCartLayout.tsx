@@ -18,7 +18,7 @@ const ProductCartLayout = ({ cartItem: { product } }: Props) => {
     dispatch(
       updateQuantity({
         id: product.id,
-        quantity: quantity,
+        quantity: quantity + 1,
       })
     );
   };
@@ -28,7 +28,7 @@ const ProductCartLayout = ({ cartItem: { product } }: Props) => {
     dispatch(
       updateQuantity({
         id: product.id,
-        quantity: quantity,
+        quantity: quantity - 1,
       })
     );
   };

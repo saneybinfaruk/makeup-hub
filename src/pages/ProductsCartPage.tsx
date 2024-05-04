@@ -3,17 +3,20 @@ import ProductCartLayout from "../component/common/ProductCartLayout";
 import { useSelector } from "react-redux";
 import { RootState } from "../component/state/store";
 
-
 const ProductsCartPage = () => {
   const { cartItems } = useSelector((state: RootState) => state.cartList);
 
-  
+  const subtotal = cartItems
+    .map((c) => parseFloat(c.product.price) * c.quantity)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  const shipping = 15;
 
   return (
     <section className={styles.container}>
       <section className={styles.cartsProduct}>
         <div className={styles.headerContainer}>
-          <h3>My Cart(0)</h3>
+          <h3>My Cart ({cartItems.length})</h3>
           <span className={styles.line} />
         </div>
 
@@ -34,16 +37,16 @@ const ProductsCartPage = () => {
           <h4>Cart Subtotal</h4>
           <div className={styles.subContainer}>
             <p>Subtotal</p>
-            <h4>$ 785684</h4>
+            <h4>$ {subtotal}</h4>
           </div>
           <div className={styles.subContainer}>
             <p>Shiping</p>
-            <h4>$ 15</h4>
+            <h4>$ {shipping}</h4>
           </div>
           <span className={styles.line} />
           <div className={styles.subContainer}>
             <h1>Total</h1>
-            <h4>$ 589564</h4>
+            <h4>$ {subtotal + shipping}</h4>
           </div>
         </section>
       </section>
