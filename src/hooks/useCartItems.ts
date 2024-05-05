@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { RootState } from "../component/state/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Product } from "../pages/HomePage";
-import { addToList, updateQuantity } from "../component/state/cartSlice";
+import {
+  addToList,
+  removeItem,
+  updateQuantity,
+} from "../component/state/cartSlice";
 
 const useCartItems = (product: Product) => {
   const cartItems = useSelector((state: RootState) => state.cartList.cartItems);
@@ -40,9 +44,22 @@ const useCartItems = (product: Product) => {
   const handleDecreamentQuantity = () => {
     setQuantity((quantity -= 1));
     cartUpdate();
+
+    if (quantity <= 0) {
+      handleRemoveBtn();
+    }
   };
 
-  return { quantity, handleIncreamentQuantity, handleDecreamentQuantity };
+  const handleRemoveBtn = () => {
+    dispatch(removeItem({ id: product.id, quantity }));
+  };
+
+  return {
+    quantity,
+    handleIncreamentQuantity,
+    handleDecreamentQuantity,
+    handleRemoveBtn,
+  };
 };
 
 export default useCartItems;

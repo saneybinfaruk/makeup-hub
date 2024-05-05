@@ -1,17 +1,20 @@
 import styles from "./ProductCartLayout.module.css";
 import PriceContainer from "./PriceContainer";
 import CartButton from "./CartButton";
-import { CartItem, updateQuantity } from "../state/cartSlice";
+import { CartItem } from "../state/cartSlice";
 import useCartItems from "../../hooks/useCartItems";
-import { useDispatch } from "react-redux";
 
 interface Props {
   cartItem: CartItem;
 }
 
 const ProductCartLayout = ({ cartItem: { product } }: Props) => {
-  let { handleIncreamentQuantity, handleDecreamentQuantity, quantity } =
-    useCartItems(product);
+  let {
+    handleIncreamentQuantity,
+    handleDecreamentQuantity,
+    quantity,
+    handleRemoveBtn,
+  } = useCartItems(product);
 
   return (
     <section className={styles.container}>
@@ -38,7 +41,9 @@ const ProductCartLayout = ({ cartItem: { product } }: Props) => {
           increamentQuantity={handleIncreamentQuantity}
           decreamentQuantity={handleDecreamentQuantity}
         />
-        <button className={styles.removeBtn}>Remove</button>
+        <button className={styles.removeBtn} onClick={handleRemoveBtn}>
+          Remove
+        </button>
       </section>
     </section>
   );

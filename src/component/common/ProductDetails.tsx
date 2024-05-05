@@ -1,11 +1,12 @@
 import styles from "./ProductDetails.module.css";
-import { FaHeart } from "react-icons/fa6";
 import PriceContainer from "./PriceContainer";
 import CustomButton from "./CustomButton";
 import { Product } from "../../pages/HomePage";
 import Spinner from "./Spinner";
 import CartButton from "./CartButton";
 import useCartItems from "../../hooks/useCartItems";
+import useFavorite from "../../hooks/useFavorite";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 interface Props {
   product: Product;
@@ -14,6 +15,7 @@ interface Props {
 const ProductDetails = ({ product, isLoading }: Props) => {
   let { quantity, handleIncreamentQuantity, handleDecreamentQuantity } =
     useCartItems(product);
+  const { favorite, handleSetFavorite } = useFavorite(product);
 
   return isLoading ? (
     <Spinner />
@@ -31,10 +33,19 @@ const ProductDetails = ({ product, isLoading }: Props) => {
 
         <div className={styles.productDetails}>
           <div className={styles.favoriteBtnContainer}>
-            <button className={styles.favoriteBtn}>
-              <FaHeart />
-              add to favorite
-            </button>
+            <div className={styles.favoriteBtn} onClick={handleSetFavorite}>
+              {favorite ? (
+                <>
+                  <MdFavorite color="red" size={22} />
+                  <h1>favorited</h1>
+                </>
+              ) : (
+                <>
+                  <MdFavoriteBorder size={22} />
+                  <h1>add to favorite</h1>
+                </>
+              )}
+            </div>
           </div>
 
           <h6>{product?.brand}</h6>

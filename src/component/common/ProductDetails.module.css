@@ -47,7 +47,8 @@
   color: #ffce53;
 }
 .favoriteBtnContainer {
-  margin-bottom: 1rem;
+  align-self: start;
+  margin-bottom: 10px;
 }
 .favoriteBtn {
   outline: none;
