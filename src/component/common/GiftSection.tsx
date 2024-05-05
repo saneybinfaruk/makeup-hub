@@ -25,6 +25,7 @@ const GiftSection = () => {
           title="subscribe"
           buttonBackgroundColor="#000"
           titleColor="#fff"
+          onSelect={()=>{}}
         />
       </div>
       <div className={styles.smallWhiteCircle} />

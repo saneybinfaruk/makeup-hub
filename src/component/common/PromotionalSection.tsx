@@ -17,7 +17,7 @@ const PromotionalSection = () => {
         <div className={styles.imageContainer}>
           <img className={styles.img} src={promotionalImage} />
           <CicleWithPrice
-            price="84,99"
+            price={84.99}
             circleStyle={styles.circleContainer}
             priceContainerStyle={styles.priceContainerStyle}
           />

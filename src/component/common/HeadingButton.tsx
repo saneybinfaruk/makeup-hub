@@ -19,8 +19,7 @@ const HeadingButton = ({
         height="40px"
         width="150px"
         buttonBackgroundColor={buttonBackgroundColor}
-        titleColor={buttonTitleColor}
-      />
+        titleColor={buttonTitleColor} onSelect={ ()=> {} }      />
     </div>
   );
 };

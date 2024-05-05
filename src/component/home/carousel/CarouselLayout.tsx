@@ -2,11 +2,9 @@ import styles from "./CarouselLayout.module.css";
 import CustomButton from "../../common/CustomButton";
 import CicleWithPrice from "../../common/CicleWithPrice";
 import { useState } from "react";
-import { BiLeftArrow } from "react-icons/bi";
-import { FaChevronLeft, FaDotCircle } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
-import { GoDot, GoDotFill } from "react-icons/go";
-import { LuCircleDot } from "react-icons/lu";
+import { GoDotFill } from "react-icons/go";
 import { FaRegCircleDot } from "react-icons/fa6";
 
 export type Product = {
@@ -21,7 +19,7 @@ interface Props {
   onSelect: (id: number) => void;
 }
 
-const CarouselLayout = ({ products, onSelect }: Props) => {
+const CarouselLayout = ({ products }: Props) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const handlePrevImage = () => {
@@ -43,7 +41,7 @@ const CarouselLayout = ({ products, onSelect }: Props) => {
   return (
     <div className={styles.carouselLayout}>
       <div className={styles.carouselContainer}>
-        {products.map((product, index) => (
+        {products.map((product) => (
           <div
             key={product.id}
             className={styles.carouselImage}
@@ -72,28 +70,6 @@ const CarouselLayout = ({ products, onSelect }: Props) => {
               </div>
             </div>
           </div>
-
-          // <div className={styles.container}>
-          //   <div className={styles.gridLeft}>
-          //     <h1 className={styles.heading}>{"title"}</h1>
-          //     <p className={styles.subHeading}>{"description"}</p>
-          //     <CustomButton
-          //       onSelect={() => onSelect(2)}
-          //       title="see more"
-          //       titleColor="#000"
-          //     />
-          //   </div>
-          //   <div className={styles.gridRight}>
-          //     <div className={styles.imgContainer}>
-          //       <CicleWithPrice
-          //         circleStyle={styles.circleStyle}
-          //         price={45}
-          //         priceSub="per price, 30 ml"
-          //       />
-          //       <img src={"imageUrl"} className={styles.img} />
-          //     </div>
-          //   </div>
-          // </div>
         ))}
       </div>
 
@@ -124,27 +100,6 @@ const CarouselLayout = ({ products, onSelect }: Props) => {
         ))}
       </div>
     </div>
-    // <div className={styles.container}>
-    //   <div className={styles.gridLeft}>
-    //     <h1 className={styles.heading}>{title}</h1>
-    //     <p className={styles.subHeading}>{description}</p>
-    //     <CustomButton
-    //       onSelect={() => onSelect(id)}
-    //       title="see more"
-    //       titleColor="#000"
-    //     />
-    //   </div>
-    //   <div className={styles.gridRight}>
-    //     <div className={styles.imgContainer}>
-    //       <CicleWithPrice
-    //         circleStyle={styles.circleStyle}
-    //         price={price}
-    //         priceSub="per price, 30 ml"
-    //       />
-    //       <img src={imageUrl} className={styles.img} />
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

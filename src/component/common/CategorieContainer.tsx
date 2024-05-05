@@ -7,8 +7,7 @@ import SelectOption from "./SelectOption";
 import { useState } from "react";
 import { BRANDS } from "../../constant/brand";
 import SelectOptionNum from "./SelectOptionNum";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../state/store";
+import { useDispatch } from "react-redux";
 import {
   setProductBrand,
   setProductMaxPrice,

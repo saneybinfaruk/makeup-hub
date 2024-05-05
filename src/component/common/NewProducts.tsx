@@ -20,7 +20,7 @@ const NewProducts = () => {
         </div>
 
         <CicleWithPrice
-          price="184,99"
+          price={184.99}
           circleStyle={styles.circleContainer}
           priceContainerStyle={styles.priceContainerStyle}
         />

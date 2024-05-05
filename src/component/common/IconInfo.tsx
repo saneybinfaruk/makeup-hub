@@ -1,5 +1,4 @@
 import styles from "./IconInfo.module.css";
-import NavIcons from "../navbar/NavIcons";
 import { ReactNode } from "react";
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
   heading: string;
   iconBackgroundStyle: string;
 }
-const IconInfo = ({ heading, iconBackgroundStyle, children }: Props) => {
+const IconInfo = ({ heading, children }: Props) => {
   return (
     <section className={styles.container}>
       <div className={styles.itemContainer}>

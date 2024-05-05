@@ -8,7 +8,7 @@ const GridContainer = ({
   isLoading,
 }: {
   datas: Product[];
-  isLoading: boolean;
+  isLoading?: boolean;
 }) => {
   return isLoading ? (
     <Spinner />

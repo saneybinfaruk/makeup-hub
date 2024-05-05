@@ -7,7 +7,7 @@ const NewProductSmall = () => {
   return (
     <div>
       <HeadingButton heading="Natural and ecological beauty solutions for you!" />
-      <CicleWithPrice price="24,99" circleStyle={styles.cicle} />
+      <CicleWithPrice price={24.99} circleStyle={styles.cicle} />
       <img src={productImage} className={styles.image} />
     </div>
   );
