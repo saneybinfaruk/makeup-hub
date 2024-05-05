@@ -41,11 +41,11 @@ const cartSlice = createSlice({
       );
 
       const index = state.cartItems.indexOf(item!);
-      state.cartItems.splice(index, 1)
+      state.cartItems.splice(index, 1);
     },
   },
 });
 
-export const { addToList, updateQuantity,removeItem } = cartSlice.actions;
+export const { addToList, updateQuantity, removeItem } = cartSlice.actions;
 
 export default cartSlice.reducer;

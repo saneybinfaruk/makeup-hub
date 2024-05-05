@@ -42,7 +42,10 @@ const Navbar = () => {
           iconName="search"
           countTextVisibility={false}
         />
-        <div className={styles.favoriteContainer}>
+        <div
+          className={styles.favoriteContainer}
+          onClick={() => navigate("/favoriteProducts")}
+        >
           <NavIcon children={<IoHeart size={25} />} iconName="favorite" />
           <p className={styles.counterText}>{favoriteList.length}</p>
         </div>

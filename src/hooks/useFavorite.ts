@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux"; 
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../component/state/store";
 import { Product } from "../pages/HomePage";
-import { addToList, updateFavorite } from "../component/state/favoriteSlice";
+import {
+  addToList,
+  removeFavorite,
+  updateFavorite,
+} from "../component/state/favoriteSlice";
 
 const useFavorite = (product: Product) => {
   const favoriteItems = useSelector(
@@ -25,7 +29,7 @@ const useFavorite = (product: Product) => {
     }
   }, [favoriteItem]);
 
-  const cartUpdate = () => {
+  const favoriteUpdate = () => {
     if (favoriteItem) {
       dispatch(
         updateFavorite({
@@ -33,19 +37,21 @@ const useFavorite = (product: Product) => {
           isFavorite: favorite,
         })
       );
+      if (!favorite) {
+        dispatch(removeFavorite({ id: product.id }));
+      }
     } else {
       dispatch(addToList({ product, isFavorite: favorite }));
     }
   };
   const handleSetFavorite = () => {
     setFavorite((favorite = !favorite));
-    cartUpdate();
+    favoriteUpdate();
   };
- 
 
   return {
     favorite,
-    handleSetFavorite, 
+    handleSetFavorite,
   };
 };
 

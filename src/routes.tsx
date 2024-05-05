@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import ProductsCartPage from "./pages/ProductsCartPage";
+import FavoriteProductsPage from "./pages/FavoriteProductsPage";
 
 const routes = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const routes = createBrowserRouter([
         path: "/productsCart",
         element: <ProductsCartPage />,
       },
+
+
+      {
+        path: "/favoriteProducts",
+        element: <FavoriteProductsPage />,
+      },
+
+
     ],
   },
 ]);

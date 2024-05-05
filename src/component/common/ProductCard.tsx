@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { Product } from "../../pages/HomePage";
 import PriceContainer from "./PriceContainer";
 import styles from "./ProductCard.module.css";
-import { useDispatch } from "react-redux";
 import { MdFavorite, MdFavoriteBorder, MdShoppingBasket } from "react-icons/md";
 import useCartItems from "../../hooks/useCartItems";
-import { updateFavorite } from "../state/favoriteSlice";
 import useFavorite from "../../hooks/useFavorite";
 
 interface Props {
