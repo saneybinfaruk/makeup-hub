@@ -1,26 +1,42 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Product } from "../../pages/HomePage";
 
-interface FavoriteType {
-  count: number;
+export interface FavoriteItem {
+  product: Product;
+  isFavorite: boolean;
+
 }
 
-const initialValue: FavoriteType = {
-  count: 0,
+type FavoriteState = {
+  favoriteList: FavoriteItem[];
+};
+
+const initialState: FavoriteState = {
+  favoriteList: [] as FavoriteItem[],
 };
 
 const favoriteSlice = createSlice({
-  name: "favoriteCount",
-  initialState: initialValue,
+  name: "favoriteList",
+  initialState,
   reducers: {
-    increament: (state) => {
-      state.count += 1;
+    addToList: (state, action: PayloadAction<FavoriteItem>) => {
+      state.favoriteList.push(action.payload);
     },
-    decreament: (state) => {
-      state.count -= 1;
+    updateFavorite: (
+      state,
+      action: PayloadAction<{ id: number; isFavorite: boolean }>
+    ) => {
+      const item = state.favoriteList.find(
+        (cart) => cart.product.id === action.payload.id
+      );
+
+      if (item) {
+        item.isFavorite = action.payload.isFavorite;
+      }
     },
   },
 });
 
-export const { increament, decreament } = favoriteSlice.actions;
+export const { addToList, updateFavorite } = favoriteSlice.actions;
 
 export default favoriteSlice.reducer;

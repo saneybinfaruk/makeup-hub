@@ -3,27 +3,29 @@ import { Product } from "../../pages/HomePage";
 import PriceContainer from "./PriceContainer";
 import styles from "./ProductCard.module.css";
 import { useDispatch } from "react-redux";
-import { increament } from "../state/favoriteSlice";
 import { MdFavorite, MdFavoriteBorder, MdShoppingBasket } from "react-icons/md";
 import useCartItems from "../../hooks/useCartItems";
+import { updateFavorite } from "../state/favoriteSlice";
+import useFavorite from "../../hooks/useFavorite";
 
 interface Props {
   product: Product;
 }
 const ProductCard = ({ product }: Props) => {
-  const dispatch = useDispatch();
   let { quantity, handleIncreamentQuantity, handleDecreamentQuantity } =
     useCartItems(product);
+
+  let { favorite, handleSetFavorite } = useFavorite(product);
 
   return (
     <div className={styles.container}>
       {/* Favorite Container */}
       <div className={styles.favoriteContainer}>
-        <div className={styles.favorite} onClick={() => dispatch(increament())}>
-          {product.favorite === 0 ? (
-            <MdFavoriteBorder size={22} />
+        <div className={styles.favorite} onClick={handleSetFavorite}>
+          {favorite ? (
+            <MdFavorite color={"red"} size={22} />
           ) : (
-            <MdFavorite size={22} />
+            <MdFavoriteBorder size={22} />
           )}
         </div>
 

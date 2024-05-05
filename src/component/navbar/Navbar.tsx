@@ -6,8 +6,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../state/store";
 
 const Navbar = () => {
-  const { count } = useSelector((state: RootState) => state.favorite);
-  const { cartItems } = useSelector((state: RootState) => state.cartList);
+  const favoriteList = useSelector(
+    (state: RootState) => state.favorite.favoriteList
+  );
+  const cartList = useSelector((state: RootState) => state.cartList.cartItems);
   const navigate = useNavigate();
 
   return (
@@ -42,14 +44,19 @@ const Navbar = () => {
         />
         <div className={styles.favoriteContainer}>
           <NavIcon children={<IoHeart size={25} />} iconName="favorite" />
-          <p className={styles.counterText}>{count}</p>
+          <p className={styles.counterText}>{favoriteList.length}</p>
         </div>
-        <div className={styles.cartContainer} onClick={()=>{navigate('/productsCart')}}>
+        <div
+          className={styles.cartContainer}
+          onClick={() => {
+            navigate("/productsCart");
+          }}
+        >
           <NavIcon
             children={<IoBasket size={25} />}
             iconName="shopping_basket"
           />
-          <p className={styles.counterText}>{cartItems.length}</p>
+          <p className={styles.counterText}>{cartList.length}</p>
         </div>
       </div>
     </nav>
