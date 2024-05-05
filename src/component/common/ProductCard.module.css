@@ -2,6 +2,8 @@
   padding: 20px;
   height: auto;
   position: relative;
+  display: grid;
+  grid-template-rows: repeat(4, auto);
 }
 
 .container:hover {
@@ -17,8 +19,31 @@
   cursor: pointer;
 }
 
+.container:hover .btnContainer {
+  box-shadow: 0px 0px 200px #0000003f;
+}
+
+/* Favorite Container */
 .favorite {
   cursor: pointer;
+}
+.favoriteContainer {
+  grid-area: 1/1/2/1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.discountContainer {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Details Container */
+.detailsContainer {
+  grid-area: 2/1/4/1;
 }
 
 .productImage {
@@ -42,18 +67,11 @@
   font-family: "poppins";
   display: block;
   color: rgb(37, 37, 37);
+  margin-bottom: 0.6rem;
 }
 
 .productName:hover {
   color: rgb(0, 0, 0);
-}
-
-.cartContainer {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  align-items: center;
-  align-content: center;
 }
 
 .priceContainer {
@@ -68,25 +86,16 @@
   left: 12px;
 }
 
-.circle {
-  background-color: rgba(76, 76, 76, 0.1);
-  width: 32px;
-  height: 32px;
-  border-radius: 50px;
-  z-index: 0;
-}
-
-.favoriteContainer {
+/* Cart Container */
+.cartContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   position: relative;
-}
-.discountContainer {
-  position: absolute;
-  right: 0;
-  display: flex;
   align-items: center;
+  align-content: center;
+  width: 100%;
+  min-height: 50px;
+  grid-area: 4/1/5/1;
 }
 
 .cart {
@@ -97,18 +106,15 @@
 
 .btnContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 0.3rem;
-  box-shadow: 0px 0px 200px #0000003f;
-  border-radius: 15px;
-  min-width: 50px;
+  border-radius: 10px;
+  min-height: 50px;
+  min-width: 80px;
   padding: 0.1rem 0.6rem;
-}
-.cartBtnContainer > * {
-  position: absolute;
-  right: 0;
-  top: -3.1rem;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
 }
 
 .cartIcon {

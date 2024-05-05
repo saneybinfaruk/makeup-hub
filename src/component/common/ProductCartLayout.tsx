@@ -10,28 +10,8 @@ interface Props {
 }
 
 const ProductCartLayout = ({ cartItem: { product } }: Props) => {
-  const dispatch = useDispatch();
-  let { setQuantity, quantity } = useCartItems(product);
-
-  const handleIncreamentQuantity = () => {
-    setQuantity((prevValue) => prevValue + 1);
-    dispatch(
-      updateQuantity({
-        id: product.id,
-        quantity: quantity + 1,
-      })
-    );
-  };
-
-  const handleDecrementQuantity = () => {
-    setQuantity((prevValue) => prevValue - 1);
-    dispatch(
-      updateQuantity({
-        id: product.id,
-        quantity: quantity - 1,
-      })
-    );
-  };
+  let { handleIncreamentQuantity, handleDecreamentQuantity, quantity } =
+    useCartItems(product);
 
   return (
     <section className={styles.container}>
@@ -56,7 +36,7 @@ const ProductCartLayout = ({ cartItem: { product } }: Props) => {
         <CartButton
           quantity={quantity}
           increamentQuantity={handleIncreamentQuantity}
-          decreamentQuantity={handleDecrementQuantity}
+          decreamentQuantity={handleDecreamentQuantity}
         />
         <button className={styles.removeBtn}>Remove</button>
       </section>

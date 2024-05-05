@@ -4,10 +4,7 @@ import PriceContainer from "./PriceContainer";
 import CustomButton from "./CustomButton";
 import { Product } from "../../pages/HomePage";
 import Spinner from "./Spinner";
-import { useDispatch } from "react-redux";
-import { addToList, updateQuantity } from "../state/cartSlice";
 import CartButton from "./CartButton";
-import { useEffect } from "react";
 import useCartItems from "../../hooks/useCartItems";
 
 interface Props {
@@ -15,38 +12,8 @@ interface Props {
   isLoading: boolean;
 }
 const ProductDetails = ({ product, isLoading }: Props) => {
-  let { quantity, setQuantity, cartItem } = useCartItems(product);
-
-  const dispatch = useDispatch();
-
-  const cartUpdate = () => {
-    if (cartItem) {
-      dispatch(
-        updateQuantity({
-          id: product.id,
-          quantity,
-        })
-      );
-    } else {
-      dispatch(addToList({ product, quantity }));
-    }
-  };
-  const handleIncreamentQuantity = () => {
-    setQuantity((quantity += 1));
-    cartUpdate();
-  };
-  const handleDecreamentQuantity = () => {
-    setQuantity((quantity -= 1));
-    cartUpdate();
-  };
-
-  useEffect(() => {
-    if (cartItem) {
-      setQuantity(cartItem ? cartItem.quantity : 0);
-    } else {
-      setQuantity(0);
-    }
-  }, [cartItem]);
+  let { quantity, handleIncreamentQuantity, handleDecreamentQuantity } =
+    useCartItems(product);
 
   return isLoading ? (
     <Spinner />
