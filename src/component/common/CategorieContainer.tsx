@@ -4,7 +4,7 @@ import { Product } from "../../pages/HomePage";
 import styles from "./CategorieContainer.module.css";
 import GridContainer from "./GridContainer";
 import SelectOption from "./SelectOption";
-import { useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { BRANDS } from "../../constant/brand";
 import SelectOptionNum from "./SelectOptionNum";
 import { useDispatch } from "react-redux";
@@ -28,21 +28,30 @@ const CategorieContainer = ({
   selectSort,
   selectItemPerPage,
 }: Props) => {
-  const [type, setType] = useState("");
-  const allBrands = ["all", ...BRANDS];
-
-  const sortBy = [
-    "newest first",
-    "oldest first",
-    "name A to Z",
-    "name Z to A",
-    "price high to low",
-    "price low to high",
-  ];
-
-  const showNum = [30, 50, 80, 100];
-
   const dispatch = useDispatch();
+
+  const [type, setType] = useState("");
+
+  const allBrands = useMemo(() => {
+    return ["all", ...BRANDS];
+  }, []);
+
+  const handleOnBrandChange = useCallback((value: string) => {
+    dispatch(setProductBrand(value === "all" ? "" : value));
+  }, []);
+
+  const sortBy = useMemo(() => {
+    return [
+      "newest first",
+      "oldest first",
+      "name A to Z",
+      "name Z to A",
+      "price high to low",
+      "price low to high",
+    ];
+  }, []);
+
+  const showNum = useMemo(() => [30, 50, 80, 100], []);
 
   return (
     <section className={styles.container}>
@@ -105,9 +114,7 @@ const CategorieContainer = ({
             label="brands"
             brands={allBrands}
             id="brands"
-            onChange={(value) =>
-              dispatch(setProductBrand(value === "all" ? "" : value))
-            }
+            onChange={handleOnBrandChange}
           />
           <SelectOption
             label="sort by"
@@ -119,7 +126,7 @@ const CategorieContainer = ({
             label="show"
             items={showNum}
             id="show"
-            onChange={(itemPerPage) => selectItemPerPage(itemPerPage)}
+            onChange={selectItemPerPage}
           />
         </section>
 
@@ -131,4 +138,4 @@ const CategorieContainer = ({
   );
 };
 
-export default CategorieContainer;
+export default memo(CategorieContainer);

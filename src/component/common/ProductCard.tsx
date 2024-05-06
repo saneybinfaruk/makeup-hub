@@ -5,22 +5,20 @@ import styles from "./ProductCard.module.css";
 import { MdFavorite, MdFavoriteBorder, MdShoppingBasket } from "react-icons/md";
 import useCartItems from "../../hooks/useCartItems";
 import useFavorite from "../../hooks/useFavorite";
+import { memo } from "react";
 
-interface Props {
-  product: Product;
-}
-const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product }: { product: Product }) => {
   let { quantity, handleIncreamentQuantity, handleDecreamentQuantity } =
     useCartItems(product);
 
-  let { favorite, handleSetFavorite } = useFavorite(product);
+  let { favorite: isFavorite, handleSetFavorite } = useFavorite(product);
 
   return (
     <div className={styles.container}>
       {/* Favorite Container */}
       <div className={styles.favoriteContainer}>
         <div className={styles.favorite} onClick={handleSetFavorite}>
-          {favorite ? (
+          {isFavorite ? (
             <MdFavorite color={"red"} size={22} />
           ) : (
             <MdFavoriteBorder size={22} />
@@ -63,4 +61,4 @@ const ProductCard = ({ product }: Props) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

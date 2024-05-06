@@ -25,26 +25,23 @@ const favoriteSlice = createSlice({
       state,
       action: PayloadAction<{ id: number; isFavorite: boolean }>
     ) => {
+
+      const {id, isFavorite} = action.payload;
       const item = state.favoriteList.find(
-        (cart) => cart.product.id === action.payload.id
+        (cart) => cart.product.id === id
       );
 
       if (item) {
-        item.isFavorite = action.payload.isFavorite;
+        item.isFavorite = isFavorite;
       }
-    },
-    removeFavorite: (state, action: PayloadAction<{ id: number }>) => {
-      const item = state.favoriteList.find(
-        (cart) => cart.product.id === action.payload.id
-      );
 
-      const index = state.favoriteList.indexOf(item!);
-      state.favoriteList.splice(index, 1);
+      if (!isFavorite)
+        state.favoriteList.splice(state.favoriteList.indexOf(item!), 1);
     },
   },
 });
 
-export const { addToList, updateFavorite, removeFavorite } =
+export const { addToList, updateFavorite } =
   favoriteSlice.actions;
 
 export default favoriteSlice.reducer;

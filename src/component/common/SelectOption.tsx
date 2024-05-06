@@ -1,5 +1,6 @@
 import { BiSolidDownArrow } from "react-icons/bi";
 import styles from "./SelectOption.module.css";
+import { memo } from "react";
 interface Props {
   label: string;
   id: string;
@@ -22,4 +23,4 @@ const SelectOption = ({ label, id, brands, onChange }: Props) => {
   );
 };
 
-export default SelectOption;
+export default memo(SelectOption);

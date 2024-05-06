@@ -37,7 +37,7 @@ const cartSlice = createSlice({
       action: PayloadAction<{ id: number; quantity: number }>
     ) => {
       const item = state.cartItems.find(
-        (cart) => cart.product.id === action.payload.id
+        (cart) => cart.product?.id === action.payload.id
       );
 
       const index = state.cartItems.indexOf(item!);

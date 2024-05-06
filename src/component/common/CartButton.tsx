@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./CartButton.module.css";
 
 type Props = {
@@ -21,4 +22,4 @@ const CartButton = ({
   );
 };
 
-export default CartButton;
+export default memo(CartButton);

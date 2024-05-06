@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./CustomButton.module.css";
 interface Props {
   title: string;
@@ -32,4 +33,4 @@ const CustomButton = ({
   );
 };
 
-export default CustomButton;
+export default memo(CustomButton);

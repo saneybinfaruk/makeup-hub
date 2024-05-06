@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./Pagination.module.css";
 
 interface Props {
@@ -22,19 +23,18 @@ const Pagination = ({
   return (
     <div className={styles.container}>
       {pageNumbers.map((number) => (
-        <a
-          onClick={() => onItemSelect(number)}
-          key={number}
-          href="#"
-          className={
-            currentPage === number ? styles.selected : styles.notSelected
-          }
-        >
-          {number}
-        </a>
+        <button onClick={() => onItemSelect(number)} key={number}>
+          <p
+            className={
+              currentPage === number ? styles.selected : styles.notSelected
+            }
+          >
+            {number}
+          </p>
+        </button>
       ))}
     </div>
   );
 };
 
-export default Pagination;
+export default memo(Pagination);

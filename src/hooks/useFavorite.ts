@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../component/state/store";
 import { Product } from "../pages/HomePage";
-import {
-  addToList,
-  removeFavorite,
-  updateFavorite,
-} from "../component/state/favoriteSlice";
+import { addToList, updateFavorite } from "../component/state/favoriteSlice";
 
 const useFavorite = (product: Product) => {
   const favoriteItems = useSelector(
@@ -15,38 +11,31 @@ const useFavorite = (product: Product) => {
 
   const favoriteItem = favoriteItems?.find((f) => f.product.id === product?.id);
 
-  let [favorite, setFavorite] = useState(
+  const [favorite, setFavorite] = useState(
     favoriteItem ? favoriteItem.isFavorite : false
   );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (favoriteItem) {
-      setFavorite(favoriteItem ? favoriteItem.isFavorite : false);
-    } else {
-      setFavorite(false);
+    if (favoriteItem && favorite !== favoriteItem.isFavorite) {
+      setFavorite(favoriteItem.isFavorite);
     }
-  }, [favoriteItem]);
+  }, [favoriteItem, favorite]);
 
-  const favoriteUpdate = () => {
-    if (favoriteItem) {
-      dispatch(
-        updateFavorite({
-          id: product.id,
-          isFavorite: favorite,
-        })
-      );
-      if (!favorite) {
-        dispatch(removeFavorite({ id: product.id }));
-      }
-    } else {
-      dispatch(addToList({ product, isFavorite: favorite }));
-    }
+  const favoriteUpdate = (isFavorite: boolean) => {
+    dispatch(
+      favoriteItem
+        ? updateFavorite({
+            id: product.id,
+            isFavorite,
+          })
+        : addToList({ product, isFavorite })
+    );
   };
   const handleSetFavorite = () => {
-    setFavorite((favorite = !favorite));
-    favoriteUpdate();
+    setFavorite((prevState) => !prevState);
+    favoriteUpdate(!favorite);
   };
 
   return {

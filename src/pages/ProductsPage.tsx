@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ProductBanner from "../component/common/ProductBanner";
 import CategorieContainer from "../component/common/CategorieContainer";
 import useProductTypes from "../hooks/useProductTypes";
@@ -11,7 +11,7 @@ const ProductsPage = () => {
   const { data, isLoading } = useProductTypes();
 
   const [products, setProducts] = useState<Product[]>([]);
-  
+
   const { setSort, sort, sortedProducts } = useProductSort(
     products as Product[]
   );
@@ -23,17 +23,17 @@ const ProductsPage = () => {
     slicedProducts,
   } = useProductPagination(sortedProducts);
 
-  const handleSelectItemsPerPage = (value: number) => {
+  const handleSelectItemsPerPage = useCallback((value: number) => {
     setItemsPerPage(value);
-  };
+  }, []);
 
-  const handleSetSort = (value: string) => {
+  const handleSetSort = useCallback((value: string) => {
     setSort(value);
-  };
+  }, []);
 
-  const handleOnItemSelect = (value: number) => {
+  const handleOnItemSelect = useCallback((value: number) => {
     setCurrentPage(value);
-  };
+  }, []);
 
   useEffect(() => {
     if (!isLoading) {
@@ -44,18 +44,18 @@ const ProductsPage = () => {
 
   return (
     <section>
+      <Pagination
+        currentPage={currentPage}
+        onItemSelect={handleOnItemSelect}
+        postsPerPage={itemsPerPage}
+        totalPosts={data?.length as number}
+      />
       <ProductBanner />
       <CategorieContainer
         products={slicedProducts}
         selectItemPerPage={handleSelectItemsPerPage}
         selectSort={handleSetSort}
         isLoading={isLoading}
-      />
-      <Pagination
-        currentPage={currentPage}
-        onItemSelect={handleOnItemSelect}
-        postsPerPage={itemsPerPage}
-        totalPosts={data?.length as number}
       />
     </section>
   );

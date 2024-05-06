@@ -4,7 +4,7 @@ import { RootState } from "../component/state/store";
 const useCartSummary = () => {
   const { cartItems } = useSelector((state: RootState) => state.cartList);
   const subtotalPrice = cartItems
-    .map((c) => parseFloat(c.product.price) * c.quantity)
+    .map((c) => parseFloat(c.product?.price) * c.quantity)
     .reduce((acc, curr) => acc + curr, 0)
     .toFixed(2);
 

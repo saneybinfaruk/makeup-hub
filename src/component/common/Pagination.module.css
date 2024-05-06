@@ -1,9 +1,17 @@
-.container{
+.container {
   display: flex;
   flex-direction: row;
-  gap: 0.8rem;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
+}
+.container button {
+  all: unset;
+  cursor: pointer;
+}
+
+.container > * {
+  cursor: pointer;
 }
 
 .selected {
