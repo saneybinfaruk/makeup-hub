@@ -16,7 +16,7 @@ const useProducts = () => {
   const query = useQuery<Product[], Error>({
     queryKey: ["products"],
     staleTime: 24 * 60 * 60 * 1000, // 24h
-    queryFn: fetch,
+    queryFn: fetch, 
   });
 
   return query;

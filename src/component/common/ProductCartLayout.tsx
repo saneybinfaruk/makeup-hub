@@ -3,6 +3,7 @@ import PriceContainer from "./PriceContainer";
 import CartButton from "./CartButton";
 import { CartItem } from "../state/cartSlice";
 import useCartItems from "../../hooks/useCartItems";
+import { memo } from "react";
 
 interface Props {
   cartItem: CartItem;
@@ -49,4 +50,4 @@ const ProductCartLayout = ({ cartItem: { product } }: Props) => {
   );
 };
 
-export default ProductCartLayout;
+export default memo(ProductCartLayout);

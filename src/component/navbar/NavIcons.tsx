@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import styles from "./NavIcons.module.css";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   countTextVisibility?: boolean;
   iconBackgroundStyle?: string;
   iconStyle?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 const NavIcons = ({ 
   children,
@@ -23,4 +23,4 @@ const NavIcons = ({
   );
 };
 
-export default NavIcons;
+export default memo(NavIcons);

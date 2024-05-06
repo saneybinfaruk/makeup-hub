@@ -3,7 +3,8 @@ import { RootState } from "../component/state/store";
 
 const useCartSummary = () => {
   const { cartItems } = useSelector((state: RootState) => state.cartList);
-  const subtotalPrice = cartItems
+  const itemsWithPrice = cartItems.filter((f) => f.product.price !== null);
+  const subtotalPrice = itemsWithPrice
     .map((c) => parseFloat(c.product?.price) * c.quantity)
     .reduce((acc, curr) => acc + curr, 0)
     .toFixed(2);

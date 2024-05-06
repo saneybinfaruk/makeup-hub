@@ -11,6 +11,7 @@ const Navbar = () => {
   );
   const cartList = useSelector((state: RootState) => state.cartList.cartItems);
   const navigate = useNavigate();
+ 
 
   return (
     <nav className={styles.nav}>
