@@ -9,6 +9,7 @@ import { persistReducer } from "redux-persist";
 const persistConfig = {
   key: "makeup-hub",
   storage,
+  whitelist: ["favorite", "cartList"],
 };
 const reducers = combineReducers({
   count: counterSlice,
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   cartList: cartSlice,
 });
 const persistReducers = persistReducer(persistConfig, reducers);
+
 const store = configureStore({
   reducer: persistReducers,
   middleware: (getDefaultMiddleware) =>
