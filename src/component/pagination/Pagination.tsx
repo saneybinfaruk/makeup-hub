@@ -1,5 +1,6 @@
 import { memo } from "react";
 import styles from "./Pagination.module.css";
+import useGetPageNumber from "../../hooks/useGetPageNumber";
 
 interface Props {
   postsPerPage: number;
@@ -15,11 +16,8 @@ const Pagination = ({
 }: Props) => {
   if (totalPosts <= postsPerPage) return;
 
-  const pageNumbers = [];
+  const { pageNumbers } = useGetPageNumber(totalPosts, postsPerPage);
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
   return (
     <div className={styles.container}>
       {pageNumbers.map((number) => (

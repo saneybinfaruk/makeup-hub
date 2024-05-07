@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
-import ProductBanner from "../component/common/ProductBanner";
+import ProductBanner from "../component/productFeature/ProductBanner";
 import CategorieContainer from "../component/common/CategorieContainer";
 import useProductTypes from "../hooks/useProductTypes";
 import useProductSort from "../hooks/useProductSort";
 import useProductPagination from "../hooks/useProductPagination";
-import Pagination from "../component/common/Pagination";
+import Pagination from "../component/pagination/Pagination";
 import { Product } from "./HomePage";
+import FeaturedProducts from "../component/productFeature/FeaturedProducts";
+import styles from "./ProductsPage.module.css";
+import InfoSection2 from "../component/infoSection/InfoSection2";
 
 const ProductsPage = () => {
   const { data, isLoading } = useProductTypes();
@@ -36,6 +39,7 @@ const ProductsPage = () => {
   }, []);
 
   useEffect(() => {
+    window.scroll(0, 0);
     if (!isLoading) {
       setProducts(data as Product[]);
     }
@@ -43,20 +47,25 @@ const ProductsPage = () => {
   }, [data, sort, itemsPerPage]);
 
   return (
-    <section>
-      <Pagination
-        currentPage={currentPage}
-        onItemSelect={handleOnItemSelect}
-        postsPerPage={itemsPerPage}
-        totalPosts={data?.length as number}
-      />
+    <section className={styles.container}>
       <ProductBanner />
+
       <CategorieContainer
         products={slicedProducts}
         selectItemPerPage={handleSelectItemsPerPage}
         selectSort={handleSetSort}
         isLoading={isLoading}
       />
+      <Pagination
+        currentPage={currentPage}
+        onItemSelect={handleOnItemSelect}
+        postsPerPage={itemsPerPage}
+        totalPosts={data?.length as number}
+      />
+
+      <FeaturedProducts />
+
+      <InfoSection2 />
     </section>
   );
 };

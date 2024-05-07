@@ -29,7 +29,7 @@ const useCartItems = (product: Product) => {
     dispatch(
       cartItem
         ? updateQuantity({
-            id: product.id,
+            id: product?.id,
             quantity,
           })
         : addToList({ product, quantity })

@@ -2,8 +2,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  gap: 2rem;
-  padding: 0 3rem;
+  gap: 2rem; 
 }
 
 .asideContainer {

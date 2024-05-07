@@ -7,6 +7,9 @@
   position: relative;
   margin: 3rem 0;
 }
+.link {
+  color: #76ce9e;
+}
 
 .itemContainer {
   margin-left: 15%;

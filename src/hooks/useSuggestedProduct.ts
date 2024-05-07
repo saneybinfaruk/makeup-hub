@@ -1,13 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Product } from "../pages/HomePage";
+import RandomIndex from "../utility/RandomIndex";
 
 const useSuggestedProduct = (product: Product) => {
   const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
-
-  const getRandomIndex = (min = 0, max: number) => {
-    return Math.floor(Math.random() * (max - min) + min);
-  };
 
   const fetch = () => {
     const response = axios
@@ -20,8 +17,8 @@ const useSuggestedProduct = (product: Product) => {
         res.data
           .filter((p) => p.id !== product.id)
           .slice(
-            getRandomIndex(0, res.data.length / 2),
-            getRandomIndex(res.data.length / 2, res.data.length)
+            RandomIndex(0, res.data.length / 2),
+            RandomIndex(res.data.length / 2, res.data.length)
           )
       );
 

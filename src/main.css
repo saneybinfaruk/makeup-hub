@@ -20,8 +20,12 @@
 body {
   background-color: #ffffff;
   font-family: "Krona one", sans-serif;
+  max-width: 2400px;
+  margin-inline: auto;
 }
 
 a {
   text-decoration: none;
 }
+
+

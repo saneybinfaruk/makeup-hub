@@ -1,12 +1,15 @@
-import HorizontalListTitleBtn from "../component/common/HorizontalListTitleBtn";
-import InfoSection from "../component/common/InfoSection";
-import InfoSection2 from "../component/common/InfoSection2";
-import NewProducts from "../component/common/NewProducts";
+import HeadingList from "../component/common/HeadingList";
+import InfoSection from "../component/infoSection/InfoSection";
+import InfoSection2 from "../component/infoSection/InfoSection2";
 import styles from "./HomePage.module.css";
-import Carousel from "../component/home/carousel/Carousel";
 import { useNavigate } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 import Spinner from "../component/common/Spinner";
+import Carousel from "../component/carousel/Carousel";
+import FeaturedProducts from "../component/productFeature/FeaturedProducts";
+import getRandomItems from "../utility/GetRandomItem";
+import PromotionalProduct from "../component/productFeature/PromotionalProduct";
+import GiftSection from "../component/common/GiftSection";
 
 export type Product = {
   id: number;
@@ -21,7 +24,6 @@ export type Product = {
   description: string;
   created_at: string;
   favorite: number;
-  
 };
 const HomePage = () => {
   const navigate = useNavigate();
@@ -32,34 +34,39 @@ const HomePage = () => {
     navigate("/products");
   };
 
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <div className={styles.loadingContainer}>
+        <Spinner />
+      </div>
+    );
 
   return (
     <div className={styles.body}>
-      <Carousel />
-      <HorizontalListTitleBtn
+      <Carousel products={data || []} />
+
+
+      <HeadingList
         heading="Clean beauty"
-        data={(data as Product[]).slice(0, 8)}
+        data={getRandomItems(data || [], 8)}
         onSelect={handleOnSelect}
       />
-      <NewProducts />
+      <FeaturedProducts />
+      
+      <HeadingList
+        heading="Our best"
+        data={getRandomItems(data!, 4)}
+        onSelect={handleOnSelect}
+      />
+      <PromotionalProduct id={getRandomItems(data || [], 1)[0].id.toString()} />
+
       <InfoSection />
+
       <InfoSection2 />
-      <NewProducts />
-      {/* <HorizontalListTitleBtn heading="Our best" data={ourBestData} /> */}
-      {/* <NewProducts />
-      <HorizontalListTitleBtn heading="Our best" data={ourBestData} />
-      <PromotionalSection />
-      <InfoSection />
-      <InfoSection2 />
+      
       <GiftSection />
-      <Footer /> */}
-      {/* <ProductBanner /> */}
-      {/* <CategorieContainer /> */}
-      {/* <NewProducts /> */}
-      {/* <InfoSection2 /> */}
-      {/* <ProductDetails /> */}
-      {/* <Footer /> */}
+
+     
     </div>
   );
 };

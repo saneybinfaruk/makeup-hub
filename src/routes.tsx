@@ -24,6 +24,7 @@ const routes = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductDetailsPage />,
+        errorElement: <ErrorPage />,
       },
 
       {
@@ -31,13 +32,10 @@ const routes = createBrowserRouter([
         element: <ProductsCartPage />,
       },
 
-
       {
         path: "/favoriteProducts",
         element: <FavoriteProductsPage />,
       },
-
-
     ],
   },
 ]);

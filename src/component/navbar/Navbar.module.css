@@ -1,58 +1,67 @@
 .nav {
   display: flex;
   align-items: center;
-  color: black;
+  color: black; 
+  padding: 2.5rem 4rem;
   justify-content: space-between;
-  padding: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
 }
 
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 3rem;
+  gap: 3rem; 
 }
 
-.nav a {
-  color: inherit;
-  font-size: 0.694rem;
+.navItem {
+  font-size: 0.85rem;
+  display: block;
+  transition: color 0.2s ease-in;
+  color: black;
 }
 
-.nav a:hover {
-  color: #1717;
+.navItem:hover {
+  display: block;
+  color: var(--primaryColour);
 }
 
 .brandContainer {
-  width: 20%;
-  text-align: center;
-  display: block;
-}
-
-.brandContainer link {
-  display: block;
+  text-align: center;  
+  justify-content: start;
+  align-items: start; 
 }
 
 .brandMainText {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
+  color: black;
 }
 
 .brandSubText {
-  font-size: 0.5em;
+  font-size: 0.5rem;
   letter-spacing: 4px;
   text-transform: uppercase;
+  color: rgb(42, 42, 42);
 }
 
 .iconContainer {
   display: flex;
   justify-content: space-around;
   gap: 1.5rem;
-  margin-right: 60px;
 }
 
-.favoriteContainer, .cartContainer {
+.favoriteContainer,
+.cartContainer {
   position: relative;
 }
-.favoriteContainer p, .cartContainer p {
+.favoriteContainer p,
+.cartContainer p {
   position: absolute;
   top: -80%;
   left: 1rem;

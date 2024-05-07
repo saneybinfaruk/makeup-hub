@@ -2,10 +2,7 @@
   margin-top: 4rem;
 }
 
-.heading {
-  padding: 0 5.5rem;
-}
-
+ 
 .heading h2 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
@@ -19,9 +16,7 @@
 
 .productSection {
   display: flex;
-  gap: 2rem;
-  padding: 0 4.5rem 0 5.5rem;
-  margin: 4rem 0rem;
+  gap: 2rem;  
   /* background-color: #08cfbe4f; */
 }
 

@@ -1,12 +1,11 @@
 import { FaFacebookF, FaTwitter } from "react-icons/fa6";
 import styles from "./Footer.module.css";
-import ListHeading from "./ListHeading";
+import ListHeading from "../common/ListHeading";
 import { TiSocialInstagram } from "react-icons/ti";
 
 const Footer = () => {
   return (
     <footer className={styles.container}>
-
       <div className={styles.brandContainer}>
         <h1 className={styles.brandMainText}>wavey</h1>
         <h5 className={styles.brandSubText}>beauty</h5>
@@ -66,7 +65,7 @@ const Footer = () => {
         <FaTwitter size={25} color="#FECD4E" />
         <TiSocialInstagram size={25} color="#FECD4E" />
       </div>
-      
+
       <p className={styles.copyrightText}>
         Copyright © 2019 Wavey USA, Inc. All rights reserved. Terms of Use |
         Privacy Policy

@@ -1,0 +1,21 @@
+.container {
+  padding: 0 4.5rem;
+  margin: 2.5rem 0;
+}
+
+.forYouContainer h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.forYouContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.errorMessage {
+  display: flex;
+  margin: 5rem 0;
+  justify-content: center;
+}

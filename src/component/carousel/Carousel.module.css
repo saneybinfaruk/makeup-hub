@@ -1,19 +1,61 @@
-.container {
-  height: 500px;
-  display: grid;
-  grid-template-columns: 40% 50%;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-  padding: 1rem 6rem;
+.carouselLayout {
+  position: relative; 
+  padding-bottom: 2.5rem;
+}
+
+.carouselContainer {
+  display: flex;
+  overflow: hidden;
+  max-height: 500px; 
+}
+
+.carouselImage {
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  transition: translate 0.3s ease-in-out;
+  gap: 2rem;
+  align-items: center;
+  max-height: 500px;
+}
+
+/* Left Side Section / Product details */
+.gridLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.gridLeft > p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.833rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.gridLeft > h1 {
+  font-size: 1.44rem;
+}
+
+/* Right Side Section / Product Image Price */
+
+.gridRight {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img {
-  width: 90%;
-  position: relative;
-  margin-left: 2rem;
-}
-
-.imgContainer {
+  width: 350px;
+  min-height: 500px;
+  object-fit: contain;
   position: relative;
 }
 
@@ -30,51 +72,12 @@
 
 .circleStyle {
   position: absolute;
-  right: 0;
-}
-
-.carouselLayout {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 1rem 4rem;
-}
-
-.carouselContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-}
-
-.carouselImage {
-  padding: 1rem 1.2rem;
-  width: 100%;
-  display: grid;
-  display: flex;
-  flex-shrink: 0;
-  transition: translate 0.3s ease-in-out;
-}
-
-.gridLeft {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.gridLeft > p {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.833rem;
-}
-
-.gridLeft > h1 {
-  font-size: 1.44rem;
-}
-
-.gridRight {
-  flex: 1;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  right: 1rem;
+  top: 1rem;
+  background-color: var(--primaryColour);
 }
 
 .carouselBtn {
@@ -93,7 +96,7 @@
   translate: -50%;
   display: flex;
   gap: 0.25rem;
-  align-items: center;
+  align-items: center;  
 }
 
 .dotBtn {

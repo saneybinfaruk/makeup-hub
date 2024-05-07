@@ -1,30 +1,35 @@
-import styles from "./CarouselLayout.module.css";
-import CustomButton from "../../common/CustomButton";
-import CicleWithPrice from "../../common/CicleWithPrice";
-import { useState } from "react";
+import CustomButton from "../common/CustomButton";
+import CicleWithPrice from "../common/CircleWithPrice";
+import { useEffect, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import { FaRegCircleDot } from "react-icons/fa6";
+import { Product } from "../../pages/HomePage";
+import { useNavigate } from "react-router-dom";
+import styles from "./Carousel.module.css";
+import getRandomItems from "../../utility/GetRandomItem";
 
-export type Product = {
-  title: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-  id: number;
-};
-interface Props {
-  products: Product[];
-  onSelect: (id: number) => void;
-}
-
-const CarouselLayout = ({ products }: Props) => {
+const Carousel = ({ products }: { products: Product[] }) => {
   const [imageIndex, setImageIndex] = useState(0);
+  const [carouselData, setCarouselData] = useState<Product[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const randomData = getRandomItems(products, 5);
+      setCarouselData(randomData);
+    };
+
+    // Fetch data only once when the component mounts
+    if (!carouselData.length) {
+      fetchData();
+    }
+  }, [carouselData, products]);
 
   const handlePrevImage = () => {
     setImageIndex((index) => {
-      if (index === 0) return products.length - 1;
+      if (index === 0) return carouselData?.length - 1;
       return index - 1;
     });
 
@@ -33,7 +38,7 @@ const CarouselLayout = ({ products }: Props) => {
 
   const handleNextImage = () => {
     setImageIndex((index) => {
-      if (index === products.length - 1) return 0;
+      if (index === carouselData.length - 1) return 0;
       return index + 1;
     });
   };
@@ -41,7 +46,7 @@ const CarouselLayout = ({ products }: Props) => {
   return (
     <div className={styles.carouselLayout}>
       <div className={styles.carouselContainer}>
-        {products.map((product) => (
+        {carouselData.map((product) => (
           <div
             key={product.id}
             className={styles.carouselImage}
@@ -50,23 +55,25 @@ const CarouselLayout = ({ products }: Props) => {
             }}
           >
             <div className={styles.gridLeft}>
-              <h1>{product.title}</h1>
+              <h1>{product.name}</h1>
               <p>{product.description}</p>
               <CustomButton
                 title="see more"
                 onSelect={() => {
-                  console.log("clicked");
+                  navigate(`/products/${product.id}`);
                 }}
               />
             </div>
+
             <div className={styles.gridRight}>
               <div className={styles.imgContainer}>
                 <CicleWithPrice
                   circleStyle={styles.circleStyle}
-                  price={45}
-                  priceSub="per price, 30 ml"
+                  price={product.price === null ? "0" : product.price}
+                  priceSign={product.price_sign}
+                  priceSub="per pice"
                 />
-                <img src={product.imageUrl} className={styles.img} />
+                <img src={product.api_featured_image} className={styles.img} />
               </div>
             </div>
           </div>
@@ -80,6 +87,7 @@ const CarouselLayout = ({ products }: Props) => {
       >
         <FaChevronLeft size={20} />
       </button>
+
       <button
         className={styles.carouselBtn}
         style={{ right: 0 }}
@@ -89,7 +97,7 @@ const CarouselLayout = ({ products }: Props) => {
       </button>
 
       <div className={styles.dotsBtnContainer}>
-        {products.map((product, index) => (
+        {carouselData.map((product, index) => (
           <button
             key={product.id}
             onClick={() => setImageIndex(index)}
@@ -103,4 +111,4 @@ const CarouselLayout = ({ products }: Props) => {
   );
 };
 
-export default CarouselLayout;
+export default Carousel;

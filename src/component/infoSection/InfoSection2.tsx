@@ -1,6 +1,6 @@
 import { BsCartCheck, BsChatLeftHeart } from "react-icons/bs";
 import styles from "./InfoSection2.module.css";
-import IconInfo from "./IconInfo";
+import IconInfo from "../common/IconInfo";
 
 import { LiaCommentDollarSolid } from "react-icons/lia";
 

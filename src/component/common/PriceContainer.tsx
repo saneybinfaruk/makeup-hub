@@ -10,8 +10,8 @@ const PriceContainer = ({ price, priceSign }: Props) => {
     <div className={styles.priceContainer}>
       <div className={styles.circle} />
       <h2 className={styles.priceText}>
-        {price}
-        {priceSign}
+        {price ?? "0"}
+        {priceSign ?? " $"}
       </h2>
     </div>
   );

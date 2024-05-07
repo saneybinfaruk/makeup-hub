@@ -4,6 +4,7 @@
   position: relative;
   left: 50%;
   translate: -50%;
+  margin: 1rem 0 5rem 0;
 }
 
 .spinner div {

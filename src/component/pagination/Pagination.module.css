@@ -4,6 +4,8 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
 }
 .container button {
   all: unset;

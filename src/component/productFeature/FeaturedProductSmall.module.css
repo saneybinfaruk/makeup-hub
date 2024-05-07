@@ -7,18 +7,26 @@
 .cicle {
   position: absolute;
   right: 20px;
+  width: 130px;
+  height: 130px; 
+  background-color: var(--primaryColour);
 }
 
 .image {
   position: absolute;
-  width: 130%;
   left: 0;
-  bottom: -20px;
-  transform: rotate(45deg);
-  margin-left: -25%;
+  width: 80%;
+  bottom: 0;
+  object-fit: scale-down;
 }
 
 .right {
   background-color: #5dd4a5;
   flex: 1;
+}
+
+.errorMessage {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 }

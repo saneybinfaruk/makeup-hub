@@ -1,1 +1,7 @@
- 
+.body {
+  padding: 0 4rem;
+}
+
+.loadingContainer {
+  min-height: 100vh;
+}

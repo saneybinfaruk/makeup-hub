@@ -1,14 +1,14 @@
 import { Product } from "../../pages/HomePage";
 import CustomButton from "./CustomButton";
 import GridContainer from "./GridContainer";
-import styles from "./HorizontalListTitleBtn.module.css";
+import styles from "./HeadingList.module.css";
 
 interface Props {
   heading: string;
   data: Product[];
   onSelect: () => void;
 }
-const HorizontalListTitleBtn = ({ heading, data, onSelect }: Props) => {
+const HeadingList = ({ heading, data, onSelect }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
@@ -16,15 +16,9 @@ const HorizontalListTitleBtn = ({ heading, data, onSelect }: Props) => {
         <CustomButton title="see more" titleColor="#000" onSelect={onSelect} />
       </div>
 
-      {/* <div className={styles.gridContainer}>
-        {data.map((data, index) => (
-          <ProductCard key={data + index} />
-        ))}
-      </div> */}
-
       <GridContainer datas={data} />
     </div>
   );
 };
 
-export default HorizontalListTitleBtn;
+export default HeadingList;

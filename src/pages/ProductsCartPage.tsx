@@ -1,6 +1,7 @@
 import styles from "./ProductsCartPage.module.css";
 import ProductCartLayout from "../component/common/ProductCartLayout";
 import useCartSummary from "../hooks/useCartSummary";
+import CustomButton from "../component/common/CustomButton";
 
 const ProductsCartPage = () => {
   const { cartItems, subtotalPrice, shippingPrice, totalPrice } =
@@ -42,6 +43,10 @@ const ProductsCartPage = () => {
             <h1>Total</h1>
             <h4>$ {totalPrice}</h4>
           </div>
+        </section>
+
+        <section className={styles.checkoutBtn}>
+          <CustomButton title="Procced To Checkout" onSelect={() => {}} />
         </section>
       </section>
     </section>
