@@ -1,30 +1,27 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Wavey Makeup Hub
 
-Currently, two official plugins are available:
+Wavey Makeup Hub is an online platform makeup ecommerce site, offering a wide array of makeup and beauty products.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ 
+## Features
 
-## Expanding the ESLint configuration
+- **Product Catalog:** Browse through a comprehensive catalog of makeup products, including cosmetics, skincare, and accessories.
+- **Favoritelist and Shopping Cart:** Save favorite products to a favoritelist for future reference and easily add items to the shopping cart for purchase.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- **React Query:** For efficient data fetching and caching, providing a smooth user experience.
+- **React Redux and Redux Toolkit:** For state management, ensuring consistency and scalability across components.
+- **Axios:** For making HTTP requests to fetch data from backend APIs and handle server communication.
+- **CSS Modules:** For modular and scoped CSS styling, enhancing maintainability and reusability of stylesheets.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/wavey-makeup-hub.git
+
