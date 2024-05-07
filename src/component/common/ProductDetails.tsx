@@ -17,6 +17,9 @@ const ProductDetails = ({ product, isLoading }: Props) => {
     useCartItems(product);
   const { favorite, handleSetFavorite } = useFavorite(product);
 
+
+  
+
   return isLoading ? (
     <Spinner />
   ) : (

@@ -9,6 +9,7 @@ import styles from "./ProductDetailsPage.module.css";
 import { useEffect } from "react";
 import PromotionalProduct from "../component/productFeature/PromotionalProduct";
 import getRandomItems from "../utility/GetRandomItem";
+import Spinner from "../component/common/Spinner";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -22,7 +23,9 @@ const ProductDetailsPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <section className={styles.container}>
       {typeof data === "string" ? (
         <h1 className={styles.errorMessage}>{data}</h1>

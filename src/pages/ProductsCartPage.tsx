@@ -7,6 +7,7 @@ const ProductsCartPage = () => {
   const { cartItems, subtotalPrice, shippingPrice, totalPrice } =
     useCartSummary();
 
+
   return (
     <section className={styles.container}>
       <section className={styles.cartsProduct}>

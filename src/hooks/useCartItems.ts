@@ -17,6 +17,8 @@ const useCartItems = (product: Product) => {
 
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
     if (cartItem) {
       setQuantity(cartItem ? cartItem.quantity : 0);
