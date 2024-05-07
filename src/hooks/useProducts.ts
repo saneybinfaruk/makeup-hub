@@ -3,7 +3,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 const useProducts = () => {
-  const url = "http://makeup-api.herokuapp.com/api/v1/products.json";
+  const url = "https://makeup-api.herokuapp.com/api/v1/products.json";
 
   const fetch = async () => {
     try {
