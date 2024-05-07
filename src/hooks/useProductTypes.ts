@@ -4,7 +4,7 @@ import { Product } from "../pages/HomePage";
 import { useSelector } from "react-redux";
 import { RootState } from "../component/state/store";
 
-const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
+const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 
 const useProductTypes = () => {
   const productQuery = useSelector((state: RootState) => state.productQuery);

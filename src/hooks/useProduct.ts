@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 import { Product } from "../pages/HomePage";
 
 const useProduct = (id: string) => {
-  const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
+  const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 
   const axiosInstance = axios.create({
     baseURL: BASE_URL,

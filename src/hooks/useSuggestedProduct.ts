@@ -4,7 +4,7 @@ import { Product } from "../pages/HomePage";
 import RandomIndex from "../utility/RandomIndex";
 
 const useSuggestedProduct = (product: Product) => {
-  const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
+  const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 
   const fetch = () => {
     const response = axios
@@ -13,14 +13,7 @@ const useSuggestedProduct = (product: Product) => {
           product_type: product?.product_type,
         },
       })
-      .then((res) =>
-        res.data
-          .filter((p) => p.id !== product.id)
-          .slice(
-            RandomIndex(0, res.data.length / 2),
-            RandomIndex(res.data.length / 2, res.data.length)
-          )
-      );
+      .then((res) => res.data);
 
     return response;
   };
@@ -28,6 +21,13 @@ const useSuggestedProduct = (product: Product) => {
   return useQuery({
     queryKey: ["suggestedProducts", product?.id],
     queryFn: fetch,
+    select: (data) =>
+      data
+        .filter((p) => p.id !== product.id)
+        .slice(
+          RandomIndex(0, data.length / 2),
+          RandomIndex(data.length / 2, data.length)
+        ),
   });
 };
 
