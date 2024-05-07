@@ -23,5 +23,5 @@ To run the project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/wavey-makeup-hub.git
+   git clone https://github.com/senbonjakora/makeup-hub.git
 
