@@ -11,6 +11,7 @@ const ProductsCartPage = () => {
   return (
     <section className={styles.container}>
       <section className={styles.cartsProduct}>
+
         <div className={styles.headerContainer}>
           <h3>My Cart ({cartItems.length})</h3>
           <span className={styles.line} />
@@ -25,6 +26,7 @@ const ProductsCartPage = () => {
           ))}
         </div>
       </section>
+
       <section className={styles.productsPaymentContainer}>
         <h3>Order Summary</h3>
         <span className={styles.line} />

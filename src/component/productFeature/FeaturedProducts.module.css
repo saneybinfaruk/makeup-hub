@@ -9,6 +9,7 @@
   overflow: hidden;
   position: relative;
   flex: 0.4;
+  background: rgb(234, 234, 234);
 }
 
 .right {

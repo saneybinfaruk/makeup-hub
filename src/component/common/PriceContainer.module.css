@@ -1,6 +1,6 @@
 .priceContainer {
-  flex: 1;
   position: relative; 
+  width: 150px;
 }
 
 .priceText {

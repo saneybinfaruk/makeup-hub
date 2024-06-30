@@ -3,6 +3,7 @@
   flex-direction: column;
   column-gap: 1rem;
   min-height: 400px;
+ 
 }
 .cicle {
   position: absolute;

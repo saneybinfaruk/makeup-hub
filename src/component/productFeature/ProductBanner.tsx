@@ -11,6 +11,7 @@ const ProductBanner = () => {
     <h4 className={styles.errorMessage}>{data}</h4>
   ) : (
     <section className={styles.container}>
+
       <div className={styles.itemContainer}>
         <h1>{name}</h1>
         <h4 className={styles.link}>
@@ -19,6 +20,7 @@ const ProductBanner = () => {
       </div>
 
       <img src={api_featured_image} />
+      
     </section>
   );
 };

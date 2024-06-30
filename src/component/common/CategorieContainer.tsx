@@ -7,13 +7,16 @@ import SelectOption from "./SelectOption";
 import { memo, useCallback, useMemo, useState } from "react";
 import { BRANDS } from "../../constant/brand";
 import SelectOptionNum from "./SelectOptionNum";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setProductBrand,
   setProductMaxPrice,
   setProductMinPrice,
   setProductType,
 } from "../state/querySlice";
+import { RootState } from "../state/store";
+import CustomButton from "./CustomButton";
+import { CgClose } from "react-icons/cg";
 interface Props {
   isLoading: boolean;
   products: Product[];
@@ -28,9 +31,13 @@ const CategorieContainer = ({
   selectSort,
   selectItemPerPage,
 }: Props) => {
+  const [open, setOpen] = useState(false);
+  const productQuery = useSelector((state: RootState) => state.productQuery);
   const dispatch = useDispatch();
 
-  const [type, setType] = useState("");
+  const [type, setType] = useState(
+    productQuery.productType ? productQuery?.productType : ""
+  );
 
   const allBrands = useMemo(() => {
     return ["all", ...BRANDS];
@@ -55,9 +62,80 @@ const CategorieContainer = ({
 
   return (
     <section className={styles.container}>
-      <aside className={styles.asideContainer}>
+      {open && (
+        <aside className={styles.asideContainer}>
+          <div className={styles.priceRangeContainer}>
+            <div className={styles.closeBtnContainer}>
+              <h5>select price</h5>
+              <CgClose
+                className={styles.closeBtn}
+                size={25}
+                onClick={() => setOpen(!open)}
+              />
+            </div>
+
+            <div className={styles.inputSection}>
+              <div className={styles.inputContainer1}>
+                <input
+                  type="text"
+                  onChange={(e) => dispatch(setProductMinPrice(e.target.value))}
+                />
+                <p>min.</p>
+              </div>
+
+              <div className={styles.line}></div>
+
+              <div className={styles.inputContainer2}>
+                <input
+                  type="text"
+                  onChange={(e) => dispatch(setProductMaxPrice(e.target.value))}
+                />
+                <p>max</p>
+              </div>
+            </div>
+          </div>
+
+          <section className={styles.categoriesSections}>
+            {CATEGORIES.map((categorie) => (
+              <Fragment key={categorie.name}>
+                <h6>{categorie.name}</h6>
+                <ul>
+                  {categorie.subCategories.map((subCategorie) => (
+                    <li
+                      key={subCategorie}
+                      onClick={() => {
+                        dispatch(setProductType(subCategorie));
+                        setType(subCategorie);
+                        setOpen(!open);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      className={
+                        type === subCategorie
+                          ? styles.activeItem
+                          : styles.normalItem
+                      }
+                    >
+                      {subCategorie}
+                    </li>
+                  ))}
+                </ul>
+              </Fragment>
+            ))}
+          </section>
+        </aside>
+      )}
+
+      <aside className={styles.mAsideContainer}>
+
         <div className={styles.priceRangeContainer}>
-          <h5>select price</h5>
+          <div className={styles.closeBtnContainer}>
+            <h5>select price</h5>
+            <CgClose
+              className={styles.closeBtn}
+              size={25}
+              onClick={() => setOpen(!open)}
+            />
+          </div>
 
           <div className={styles.inputSection}>
             <div className={styles.inputContainer1}>
@@ -91,6 +169,7 @@ const CategorieContainer = ({
                     onClick={() => {
                       dispatch(setProductType(subCategorie));
                       setType(subCategorie);
+                      setOpen(!open);
                     }}
                     style={{ cursor: "pointer" }}
                     className={
@@ -106,6 +185,7 @@ const CategorieContainer = ({
             </Fragment>
           ))}
         </section>
+
       </aside>
 
       <main className={styles.mainContainer}>
@@ -128,6 +208,14 @@ const CategorieContainer = ({
             id="show"
             onChange={selectItemPerPage}
           />
+
+          <div className={styles.filterBtn}>
+            <CustomButton
+              onSelect={() => setOpen(!open)}
+              title="Filter"
+              width="100%"
+            />
+          </div>
         </section>
 
         <section className={styles.productsSection}>

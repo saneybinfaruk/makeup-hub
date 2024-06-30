@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 .asideContainer {
@@ -10,6 +10,11 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  display: none;
+}
+
+.mAsideContainer {
+  display: block;
 }
 
 .priceRangeContainer {
@@ -103,6 +108,8 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .productsSection {
@@ -117,4 +124,512 @@
   text-align: center;
   left: 50%;
   translate: -50%;
+}
+
+.filterBtn {
+  display: none;
+  width: 100%;
+}
+
+.closeBtn {
+  display: none;
+}
+
+/* Extra Small Devices (Phones) - Less than 576px */
+@media (max-width: 575.98px) {
+  .closeBtn {
+    display: block;
+  }
+  .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .asideContainer {
+    z-index: 100;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    display: block;
+  }
+  .mAsideContainer {
+    display: none;
+  }
+
+  .closeBtnContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuSection {
+    grid-area: 1/1/1/13;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .filterBtn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .inputSection input {
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 7rem;
+    height: 3rem;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .closeBtn {
+    display: block;
+  }
+  .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .asideContainer {
+    z-index: 100;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    display: block;
+  }
+  .mAsideContainer {
+    display: none;
+  }
+
+  .closeBtnContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuSection {
+    grid-area: 1/1/1/13;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .filterBtn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .inputSection input {
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 9rem;
+    height: 3rem;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+
+  .mAsideContainer {
+    grid-area: 1/1/1/4;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .priceRangeContainer {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
+
+  .inputSection {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: hsl(43, 100%, 66%);
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  .inputSection input {
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 5.7rem;
+    height: 2.5rem;
+  }
+
+  .inputContainer1,
+  .inputContainer2 {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .inputContainer1 input:focus,
+  .inputContainer2 input:focus {
+    border: 1px solid #fecd4e;
+  }
+
+  .inputContainer1 p,
+  .inputContainer2 p {
+    font-size: 0.833rem;
+    font-family: "Poppins", sans-serif;
+    color: #848484;
+  }
+
+  .categoriesSections {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
+
+  .categoriesSections h6 {
+    margin-bottom: 0.8rem;
+  }
+
+  .categoriesSections ul {
+    list-style: none;
+    margin: 0 0 2rem 1rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.833rem;
+  }
+
+  .normalItem {
+    padding: 0.2rem 0rem;
+  }
+
+  .activeItem {
+    padding: 0.2rem 0rem;
+    color: #fecd4e;
+  }
+
+  .categoriesSections ul li:hover {
+    color: #fecd4e;
+  }
+
+  .mainContainer {
+    grid-area: 1/4/1/13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    position: relative;
+  }
+
+  .menuSection {
+    grid-area: 1/1/1/13;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .productsSection {
+    grid-area: 2/1/2/13;
+    margin: 2.5rem 0;
+    width: 100%;
+  }
+
+  .loading {
+    position: absolute;
+    top: 60px;
+    text-align: center;
+    left: 50%;
+    translate: -50%;
+  }
+
+  .filterBtn {
+    display: none;
+    width: 100%;
+  }
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+
+  .mAsideContainer {
+    grid-area: 1/1/1/4;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .priceRangeContainer {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
+
+  .inputSection {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: hsl(43, 100%, 66%);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .inputSection input {
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 4.7rem;
+    height: 2.5rem;
+  }
+
+  .inputContainer1,
+  .inputContainer2 {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .inputContainer1 input:focus,
+  .inputContainer2 input:focus {
+    border: 1px solid #fecd4e;
+  }
+
+  .inputContainer1 p,
+  .inputContainer2 p {
+    font-size: 0.833rem;
+    font-family: "Poppins", sans-serif;
+    color: #848484;
+  }
+
+  .categoriesSections {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
+
+  .categoriesSections h6 {
+    margin-bottom: 0.8rem;
+  }
+
+  .categoriesSections ul {
+    list-style: none;
+    margin: 0 0 2rem 1rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.833rem;
+  }
+
+  .normalItem {
+    padding: 0.2rem 0rem;
+  }
+
+  .activeItem {
+    padding: 0.2rem 0rem;
+    color: #fecd4e;
+  }
+
+  .categoriesSections ul li:hover {
+    color: #fecd4e;
+  }
+
+  .mainContainer {
+    grid-area: 1/4/1/13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    position: relative;
+  }
+
+  .menuSection {
+    grid-area: 1/1/1/13;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .productsSection {
+    grid-area: 2/1/2/13;
+    margin: 2.5rem 0;
+    width: 100%;
+  }
+
+  .loading {
+    position: absolute;
+    top: 60px;
+    text-align: center;
+    left: 50%;
+    translate: -50%;
+  }
+
+  .filterBtn {
+    display: none;
+    width: 100%;
+  }
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+
+  .mAsideContainer {
+    grid-area: 1/1/1/4;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .priceRangeContainer {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
+
+  .inputSection {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: hsl(43, 100%, 66%);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .inputSection input {
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 5.7rem;
+    height: 2.5rem;
+  }
+
+  .inputContainer1,
+  .inputContainer2 {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .inputContainer1 input:focus,
+  .inputContainer2 input:focus {
+    border: 1px solid #fecd4e;
+  }
+
+  .inputContainer1 p,
+  .inputContainer2 p {
+    font-size: 0.833rem;
+    font-family: "Poppins", sans-serif;
+    color: #848484;
+  }
+
+  .categoriesSections {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
+
+  .categoriesSections h6 {
+    margin-bottom: 0.8rem;
+  }
+
+  .categoriesSections ul {
+    list-style: none;
+    margin: 0 0 2rem 1rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.833rem;
+  }
+
+  .normalItem {
+    padding: 0.2rem 0rem;
+  }
+
+  .activeItem {
+    padding: 0.2rem 0rem;
+    color: #fecd4e;
+  }
+
+  .categoriesSections ul li:hover {
+    color: #fecd4e;
+  }
+
+  .mainContainer {
+    grid-area: 1/4/1/13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    position: relative;
+  }
+
+  .menuSection {
+    grid-area: 1/1/1/13;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .productsSection {
+    grid-area: 2/1/2/13;
+    margin: 2.5rem 0;
+    width: 100%;
+  }
+
+  .loading {
+    position: absolute;
+    top: 60px;
+    text-align: center;
+    left: 50%;
+    translate: -50%;
+  }
+
+  .filterBtn {
+    display: none;
+    width: 100%;
+  }
 }
