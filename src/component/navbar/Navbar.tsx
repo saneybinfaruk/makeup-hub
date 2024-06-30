@@ -1,11 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import NavIcon from "./NavIcons";
 import styles from "./Navbar.module.css";
-import { IoBasket, IoClose, IoHeart, IoSearch } from "react-icons/io5";
+import { IoBasket, IoHeart, IoSearch } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { RootState } from "../state/store";
 import { CATEGORIES } from "../../constant/categories";
-import { FaHamburger } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CgClose } from "react-icons/cg";
 import { useState } from "react";
