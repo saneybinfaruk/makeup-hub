@@ -1,7 +1,8 @@
 .container {
-  background-color: #f8f8f8;
   display: flex;
-  height: 500px;
+  min-height: 300px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .left {
@@ -11,10 +12,7 @@
   justify-content: center;
 }
 
-.left img {
-  width: auto;
-  height: 80%;
-}
+
 
 .right {
   flex: 0.5;
@@ -31,9 +29,180 @@
 
 .right p {
   font-family: "poppins", sans-serif;
-  font-size: 0.694rem;
+  font-size: 1rem;
   white-space: pre-line;
-  color: #858585;
+  color: #676767;
   line-height: 1.3rem;
 }
  
+
+/* Extra Small Devices (Phones) - Less than 576px */
+@media (max-width: 575.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .left {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left img {
+    width: 100%
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.1rem;
+  }
+  
+  .right h1 {
+    margin-bottom: 30px;
+    padding-right: 30px;
+    font-size: 1.3rem;
+  }
+  
+  .right p {
+    font-family: "poppins", sans-serif;
+    font-size: 0.75rem;
+    white-space: pre-line;
+    color: #858585;
+    line-height: 1.4rem;
+  }
+   
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .left {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left img {
+    width: 100%
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.1rem;
+  }
+  
+  .right h1 {
+    margin-bottom: 30px;
+    padding-right: 30px;
+  }
+  
+  .right p {
+    font-family: "poppins", sans-serif;
+    font-size: 0.75rem;
+    white-space: pre-line;
+    color: #858585;
+    line-height: 1.4rem;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .left {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left img {
+    width: 100%
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.1rem;
+  }
+  
+  .right h1 {
+    margin-bottom: 30px;
+    padding-right: 30px;
+  }
+  
+  .right p {
+    font-family: "poppins", sans-serif;
+    font-size: 0.75rem;
+    white-space: pre-line;
+    color: #858585;
+    line-height: 1.4rem;
+  }
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .left {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left img {
+    width: 100%
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.1rem;
+  }
+  
+  .right h1 {
+    margin-bottom: 30px;
+    padding-right: 30px;
+  }
+  
+  .right p {
+    font-family: "poppins", sans-serif;
+    font-size: 0.75rem;
+    white-space: pre-line;
+    color: #858585;
+    line-height: 1.4rem;
+  }
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+  
+}

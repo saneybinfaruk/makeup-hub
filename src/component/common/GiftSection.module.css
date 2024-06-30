@@ -1,80 +1,4 @@
-/* .mainContainer {
-  position: relative;
-  display: flex;
-  flex: 1;
-  align-items: center;
-}
 
-.container {
-  height: 350px;
-  background-color: #fecd4e;
-  margin-left: 10%;
-  position: relative;
-}
-
-.itemContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  margin-left: 25%;
-  padding: 0 10rem 0 1rem;
-  justify-content: center;
-  height: 100%;
-}
-
-.itemContainer h1,
-p,
-input {
-  margin-bottom: 1.4rem;
-}
-
-.itemContainer h1 {
-  font-size: 1.2rem;
-}
-.itemContainer p {
-  font-family: "poppins", sans-serif;
-  font-size: 0.694rem;
-  color: #505050;
-}
-
-.itemContainer input {
-  background-color: #fecd4e;
-  border-width: 0 0 1.5px 0;
-  padding: 8px 4px 8px 4px;
-  border-color: #000;
-  margin-bottom: 2.4rem;
-}
-
-.itemContainer input::placeholder {
-  color: #555555;
-  margin-left: 5px;
-}
-
-.bigWhiteCircle {
-  width: 12rem;
-  height: 12rem;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 100%;
-  top: 10px;
-  left: 10px;
-}
-
-.mainContainer img {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-}
-
-.smallWhiteCircle {
-  background-color: #ffffff;
-  right: 20px;
-  bottom: 20px;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-} */
 
 /* Extra Small Devices (Phones) - Less than 576px */
 @media (max-width: 575.98px) {
@@ -86,7 +10,8 @@ input {
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-    margin: 2rem;
+    margin-bottom: 15px;
+   
   }
   .gitBoxImageContainer {
     position: relative;

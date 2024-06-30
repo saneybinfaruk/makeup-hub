@@ -15,7 +15,8 @@ const FeaturedProductBig = () => {
   ) : isLoading ? (
     <Spinner />
   ) : (
-    <div>
+    <div className={styles.container}>
+      
       <div className={styles.headingContainer}>
         <HeadingButton
           heading={name}
@@ -33,6 +34,7 @@ const FeaturedProductBig = () => {
       />
 
       <img src={api_featured_image} className={styles.productImage} />
+
     </div>
   );
 };

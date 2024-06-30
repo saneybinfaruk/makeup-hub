@@ -7,14 +7,17 @@ import styles from "./FeaturedProductSmall.module.css";
 
 const FeaturedProductSmall = () => {
   const { data, isLoading } = useProduct("1043");
+
   if (!data) return null;
+
   const { id, name, api_featured_image, price, price_sign } = data as Product;
+
   return typeof data === "string" ? (
     <h4 className={styles.errorMessage}>{data}</h4>
   ) : isLoading ? (
     <Spinner />
   ) : (
-    <div>
+    <div className={styles.container}>
       <HeadingButton heading={name} id={id.toString()} />
       <CircleWithPrice
         price={price}

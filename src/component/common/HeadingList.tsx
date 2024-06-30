@@ -12,7 +12,7 @@ const HeadingList = ({ heading, data, onSelect }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
-        <h2>{heading}</h2>
+        <h2 className={styles.headingTitle}>{heading}</h2>
         <CustomButton title="see more" titleColor="#000" onSelect={onSelect} />
       </div>
 

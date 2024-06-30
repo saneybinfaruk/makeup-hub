@@ -1,17 +1,19 @@
 .carouselLayout {
-  position: relative; 
-  padding-bottom: 2.5rem;
+  position: relative;
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
 }
 
 .carouselContainer {
   display: flex;
   overflow: hidden;
-  max-height: 500px; 
+  max-height: 500px;
 }
 
 .carouselImage {
   width: 100%;
   display: flex;
+  flex-direction: row;
   flex-shrink: 0;
   transition: translate 0.3s ease-in-out;
   gap: 2rem;
@@ -24,7 +26,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
 }
 
@@ -53,10 +55,9 @@
 }
 
 .img {
-  width: 350px;
-  min-height: 500px;
   object-fit: contain;
   position: relative;
+  z-index: 3;
 }
 
 .heading {
@@ -96,7 +97,7 @@
   translate: -50%;
   display: flex;
   gap: 0.25rem;
-  align-items: center;  
+  align-items: center;
 }
 
 .dotBtn {
@@ -112,4 +113,118 @@
 
 .dotsBtnContainer > * {
   color: #fbbf27;
+}
+
+@media (max-width: 575.98px) {
+  .carouselImage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: translate 0.3s ease-in-out;
+    gap: 2rem;
+    align-items: center;
+    min-height: 500px;
+  }
+
+  .dotsBtnContainer {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    bottom: 5px;
+  }
+
+  .gridRight {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .circleStyle {
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    right: 1rem;
+    top: 1rem;
+    background-color: var(--primaryColour);
+    display: none;
+  }
+  .img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Styles for small devices */
+  .carouselImage {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    transition: translate 0.3s ease-in-out;
+    gap: 2rem;
+    align-items: center;
+    max-height: 500px;
+  }
+ 
+
+  .dotsBtnContainer {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    bottom: 5px;
+  }
+
+  .gridRight {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .circleStyle {
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    right: 1rem;
+    top: 1rem;
+    background-color: var(--primaryColour);
+    display: none;
+  }
+  .img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Styles for medium devices */
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Styles for large devices */
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
 }

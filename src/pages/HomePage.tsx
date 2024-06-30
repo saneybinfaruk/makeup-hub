@@ -45,14 +45,13 @@ const HomePage = () => {
     <div className={styles.body}>
       <Carousel products={data || []} />
 
-
       <HeadingList
         heading="Clean beauty"
         data={getRandomItems(data || [], 8)}
         onSelect={handleOnSelect}
       />
       <FeaturedProducts />
-      
+
       <HeadingList
         heading="Our best"
         data={getRandomItems(data!, 4)}
@@ -63,10 +62,8 @@ const HomePage = () => {
       <InfoSection />
 
       <InfoSection2 />
-      
-      <GiftSection />
 
-     
+      <GiftSection />
     </div>
   );
 };

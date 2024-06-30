@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column; 
-  margin-top: 5rem;
 }
 
 .titleContainer {
@@ -11,4 +10,69 @@
   padding: 0 1rem 3rem 1rem;
 }
 
- 
+/* Extra Small Devices (Phones) - Less than 576px */
+@media (max-width: 575.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem 1.5rem 1rem;
+  }
+
+  .headingTitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem 1.5rem 1rem;
+  }
+
+  .headingTitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem 1.5rem 1rem;
+  }
+
+  .headingTitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+}

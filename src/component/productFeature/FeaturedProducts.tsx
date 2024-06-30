@@ -5,6 +5,7 @@ import styles from "./FeaturedProducts.module.css";
 const FeaturedProducts = () => {
   return (
     <div className={styles.container}>
+      
       <div className={styles.left}>
         <FeaturedProductSmall />
       </div>

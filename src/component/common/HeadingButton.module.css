@@ -6,3 +6,30 @@
   margin-bottom: 20px;
   font-size: 1.44rem;
 }
+
+/* Extra Small Devices (Phones) - Less than 576px */
+@media (max-width: 575.98px) {
+  .container { 
+    padding: 25px 50px 30px 30px;
+  }
+  
+  .heading {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Devices (Tablets) - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+/* Medium Devices (Laptops, Small Desktops) - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* Large Devices (Desktops) - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* Extra Large Devices (Large Desktops, TVs) - 1200px and larger */
+@media (min-width: 1200px) {
+}

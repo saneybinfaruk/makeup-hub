@@ -1,5 +1,4 @@
 import CustomButton from "../common/CustomButton";
-import CicleWithPrice from "../common/CircleWithPrice";
 import { useEffect, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
@@ -9,6 +8,7 @@ import { Product } from "../../pages/HomePage";
 import { useNavigate } from "react-router-dom";
 import styles from "./Carousel.module.css";
 import getRandomItems from "../../utility/GetRandomItem";
+import CircleWithPrice from "../common/CircleWithPrice";
 
 const Carousel = ({ products }: { products: Product[] }) => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -67,7 +67,7 @@ const Carousel = ({ products }: { products: Product[] }) => {
 
             <div className={styles.gridRight}>
               <div className={styles.imgContainer}>
-                <CicleWithPrice
+                <CircleWithPrice
                   circleStyle={styles.circleStyle}
                   price={product.price === null ? "0" : product.price}
                   priceSign={product.price_sign}
